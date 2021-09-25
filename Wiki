@@ -1,1 +1,10 @@
+Group meeting 1 SAturday, September 25, 2021
+All members present
+1 hour session
+
+update members on git hub 
+create branch for each individual
+meetings will be held on discord
+Update readme file
+Create commits and Pull requests
 
