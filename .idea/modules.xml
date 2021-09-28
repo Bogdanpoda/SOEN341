@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SOEN341.iml" filepath="$PROJECT_DIR$/.idea/SOEN341.iml" />
-    <module fileurl="file://$PROJECT_DIR$/.idea/SOEN341?fbclid=IwAR1Niu1FvrNuN_p-5iGHKS76JZgXiuI3NOHfXGkJFopTgnAI3C0IoZn78Bg.iml" filepath="$PROJECT_DIR$/.idea/SOEN341?fbclid=IwAR1Niu1FvrNuN_p-5iGHKS76JZgXiuI3NOHfXGkJFopTgnAI3C0IoZn78Bg.iml" />
- 
-    </modules>
-  </component>
-</project> 
+
+      <module fileurl="file://$PROJECT_DIR$/.idea/SOEN341?fbclid=IwAR1Niu1FvrNuN_p-5iGHKS76JZgXiuI3NOHfXGkJFopTgnAI3C0IoZn78Bg.iml" filepath="$PROJECT_DIR$/.idea/SOEN341?fbclid=IwAR1Niu1FvrNuN_p-5iGHKS76JZgXiuI3NOHfXGkJFopTgnAI3C0IoZn78Bg.iml" />
 
     </modules>
   </component>
