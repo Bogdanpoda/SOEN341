@@ -1,6 +1,8 @@
 team members:
     Bogdan Podariu #40156514
     Jason Novio #
+    Cedric Michaud
+    
     
 
 Languages and techniques:
