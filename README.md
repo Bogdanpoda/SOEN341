@@ -1,3 +1,7 @@
+
+
+
+
 team members:
     Bogdan Podariu #40156514
     Jason Novio #
@@ -20,3 +24,4 @@ Description of the project:
     group meeting 1: Saturday September 25th
     
     
+
