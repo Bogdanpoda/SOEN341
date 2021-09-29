@@ -6,7 +6,7 @@
 
 This is the repository that contains the code, documentation, issues and much more related to SOEN 341 project during the fall semester of 2021 at Concordia University
 
-Please visit the [Gitter public chat room](https://github.com/Bogdanpoda/SOEN341/projects/1) of this repository for more long-form discussion about the project.
+Please visit the [task board](https://github.com/Bogdanpoda/SOEN341/projects/1) of this repository for the main agile board used for the project.
 
 ## Team Members
 Bogdan Podariu - [Bogdanpoda](https://github.com/Bogdanpoda)<br />
