@@ -26,21 +26,21 @@ This website will ba a simplified version of StackOverflow. Indeed this will be 
 * front end (animation): Javascript(bogdan, Siar, Jason)
 * Backend: PHP, Python C# XML, SQL??.. TBD(one of the given option)(bogdan,Siar cedric )
 * Techniques: Agile methodology ( user stories,issues assigned within a board in GitHub)
-* for each issue assigned a team member would crete a new brach with the given issue name and would solve/add feature in this brach.
+** for each issue assigned a team member would crete a new brach with the given issue name and would solve/add feature in this brach.
     after he would crete a pull request where a reviwer will test the new code and merge it to the main branch.
 
 ## Core Features
--Ask a question: the user will be allowed to ask a question
--answer a question: any user will be alloed to answer a question found on the wesite
--upvote and downvote the answers to a question: users will be allowed to upvote or downvote any question
+1. Ask a question: the user will be allowed to ask a question
+2. answer a question: any user will be alloed to answer a question found on the wesite
+3. upvote and downvote the answers to a question: users will be allowed to upvote or downvote any question
 
 ## objectives
--create the 3 main HTML pages
---Design each HTML pages with CSS
--- create a common Nav bar at the top of each html page
--create a database to store the users and questions
---each time a question is asked it would be added in the database along the number of votes and the answers
--- each time a user sign up it would be added to the database
+* create the 3 main HTML pages
+** Design each HTML pages with CSS
+** create a common Nav bar at the top of each html page
+* create a database to store the users and questions
+* each time a question is asked it would be added in the database along the number of votes and the answers
+** each time a user sign up it would be added to the database
 
 
 
