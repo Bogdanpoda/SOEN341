@@ -22,12 +22,12 @@ This website will ba a simplified version of StackOverflow. Indeed this will be 
 
 ## Languages used
 * Languages and techniques:
--front-end:HTML/CSS (nadia, Amish, Jason )
--front end (animation): Javascript(bogdan, Siar, Jason)
--Backend: PHP, Python C# XML, SQL??.. TBD(one of the given option)(bogdan,Siar cedric )
--Techniques: Agile methodology ( user stories,issues assigned within a board in GitHub)
--- for each issue assigned a team member would crete a new brach with the given issue name and would solve/add feature in this brach.
-after he would crete a pull request where a reviwer will test the new code and merge it to the main branch.
+**front-end:HTML/CSS (nadia, Amish, Jason )
+**front end (animation): Javascript(bogdan, Siar, Jason)
+**Backend: PHP, Python C# XML, SQL??.. TBD(one of the given option)(bogdan,Siar cedric )
+**Techniques: Agile methodology ( user stories,issues assigned within a board in GitHub)
+***for each issue assigned a team member would crete a new brach with the given issue name and would solve/add feature in this brach.
+    after he would crete a pull request where a reviwer will test the new code and merge it to the main branch.
 
 ## Core Features
 -Ask a question: the user will be allowed to ask a question
