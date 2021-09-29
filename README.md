@@ -20,13 +20,13 @@ Siar Radjabi - [siar2112](https://github.com/siar2112) <br />
 
 This website will ba a simplified version of StackOverflow. Indeed this will be a question and answer website for professional and enthusiast programmers. The website serves as a platform for users to ask and answer questions.In order to ask a question or answer a question each user must login/sign up to his account first. The website will consist of at least 3 HTML pages. The first page (index page) will have the text input there the user wouldbe ablo to ask his question, the main forum will also be available on this page.  the second page wil be the login page, and finaly the last page will be the sign-up form page. All the pages will have a common nav bar that will jelp the user navigate throught the website.This project is created under the SOEN 341 class during winter 2021 fall semester.
 
-## Languages used
-* Languages and techniques:
-**front-end:HTML/CSS (nadia, Amish, Jason )
-**front end (animation): Javascript(bogdan, Siar, Jason)
-**Backend: PHP, Python C# XML, SQL??.. TBD(one of the given option)(bogdan,Siar cedric )
-**Techniques: Agile methodology ( user stories,issues assigned within a board in GitHub)
-***for each issue assigned a team member would crete a new brach with the given issue name and would solve/add feature in this brach.
+## Languages and Techniques used
+
+*front-end:HTML/CSS (nadia, Amish, Jason )
+*front end (animation): Javascript(bogdan, Siar, Jason)
+*Backend: PHP, Python C# XML, SQL??.. TBD(one of the given option)(bogdan,Siar cedric )
+*Techniques: Agile methodology ( user stories,issues assigned within a board in GitHub)
+*for each issue assigned a team member would crete a new brach with the given issue name and would solve/add feature in this brach.
     after he would crete a pull request where a reviwer will test the new code and merge it to the main branch.
 
 ## Core Features
