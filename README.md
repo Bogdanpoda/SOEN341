@@ -2,79 +2,53 @@
 
 
 
-team members:
-    Bogdan Podariu #40156514
-    Jason Novio #
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-    Cedric Michaud
-    
-    
->>>>>>> 8f80bda95772f59ee8857caaa3f38ce692176c0b
-=======
-    Cedric Michaud
-    
-    
->>>>>>> 8f80bda95772f59ee8857caaa3f38ce692176c0b
-
-Languages and techniques:
-    -front-end:HTML/CSS (nadia, Amish, Jason )
-    -front end: Javascript(bogdan Siar, Jason)
-    -Backend: PHP, Python C# XML, SQL??(bogdan,Siar cedric )
-<<<<<<< HEAD
-
-Description of the project:
-    website like stackoverflow:
-        -Ask a question (index page)
-        -Answer a question
-=======
-    
-Description of the project:
-    website like stackoverflow:
-        -Ask a question (index page) 
-        -Answer a question 
->>>>>>> 8f80bda95772f59ee8857caaa3f38ce692176c0b
-        -upvote questions:
-        -creates users (login page)
-        - sorted list list of most upvoted question
-        -**** seach for question****
-<<<<<<< HEAD
-
-    group meeting 1: Saturday September 25th
-    
-<<<<<<< HEAD
-=======
-    
-
->>>>>>> 8f80bda95772f59ee8857caaa3f38ce692176c0b
-=======
-        
-    group meeting 1: Saturday September 25th
-    
-    
-
->>>>>>> 8f80bda95772f59ee8857caaa3f38ce692176c0b
-
 # SOEN 341 Project
 
-[![Join the chat at https://gitter.im/SOEN-341/soen-341-project](https://badges.gitter.im/SOEN-341/soen-341-project.svg)](https://gitter.im/SOEN-341/soen-341-project?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+This is the repository that contains the code, documentation, issues and much more related to SOEN 341 project during the fall semester of 2021 at Concordia University
 
-This is the repository that contains the code, documentation, issues and much more related to the Multi-Year Software Engineering Calendar project as defined in the Winter 2016 SOEN 341 course at Concordia University.
-
-Please visit the [Gitter public chat room](https://gitter.im/SOEN-341/soen-341-project) of this repository for more long-form discussion about the project.
+Please visit the [Gitter public chat room](https://github.com/Bogdanpoda/SOEN341/projects/1) of this repository for more long-form discussion about the project.
 
 ## Team Members
-Lance Lafontaine - [lancelafontaine](https://github.com/lancelafontaine)<br />
-Jason Tsalikis - [jason10129](https://github.com/jason10129)<br />
-Zhipeng Cai (Bruce) - [choitwao](https://github.com/choitwao) <br />
-Benny Zhao - [softarebrah](https://github.com/softwarebrah) <br />
-Veken Baboyan - [veken1199](https://github.com/veken1199) <br />
-Armine Iradian - [Armine-i](https://github.com/Armine-i) <br />
-Nassim El Sayed - [NassimElSayed](https://github.com/NassimElSayed) <br />
-Nimrat Cheema - [nim442](https://github.com/nim442) <br />
-Hannah Ortiz - [ortizh](https://github.com/ortizg) <br />
-Ahmad Hyjaz Boudin - [hyjaz](https://github.com/hyjaz) <br />
-Ayoub Ouni - [lelouchey](https://github.com/lelouchey) <br />
-Andrew Laramee - [Zephix109](https://github.com/zephix109) <br />
+Bogdan Podariu - [Bogdanpoda](https://github.com/Bogdanpoda)<br />
+Jason Novio - [Jason-817](https://github.com/Jason-817)<br />
+Nadia Beauregard- [nadiaaab](https://github.com/nadiaaab) <br />
+Amish Patel - [Pineapple920](https://github.com/Pineapple920) <br />
+Cedric Michaud - [cemichaud](https://github.com/cemichaud) <br />
+Siar Radjabi - [siar2112](https://github.com/siar2112) <br />
+
+## Description
+
+This website will ba a simplified version of StackOverflow. Indeed this will be a question and answer website for professional and enthusiast programmers. The website serves as a platform for users to ask and answer questions.In order to ask a question or answer a question each user must login/sign up to his account first. The website will consist of at least 3 HTML pages. The first page (index page) will have the text input there the user wouldbe ablo to ask his question, the main forum will also be available on this page.  the second page wil be the login page, and finaly the last page will be the sign-up form page. All the pages will have a common nav bar that will jelp the user navigate throught the website.This project is created under the SOEN 341 class during winter 2021 fall semester.
+
+## Languages used
+* Languages and techniques:
+-front-end:HTML/CSS (nadia, Amish, Jason )
+-front end (animation): Javascript(bogdan, Siar, Jason)
+-Backend: PHP, Python C# XML, SQL??.. TBD(one of the given option)(bogdan,Siar cedric )
+-Techniques: Agile methodology ( user stories,issues assigned within a board in GitHub)
+-- for each issue assigned a team member would crete a new brach with the given issue name and would solve/add feature in this brach.
+after he would crete a pull request where a reviwer will test the new code and merge it to the main branch.
+
+## Core Features
+-Ask a question: the user will be allowed to ask a question
+-answer a question: any user will be alloed to answer a question found on the wesite
+-upvote and downvote the answers to a question: users will be allowed to upvote or downvote any question
+
+## objectives
+-create the 3 main HTML pages
+--Design each HTML pages with CSS
+-- create a common Nav bar at the top of each html page
+-create a database to store the users and questions
+--each time a question is asked it would be added in the database along the number of votes and the answers
+-- each time a user sign up it would be added to the database
+
+
+
+
+
+
+
+
+
+
+
