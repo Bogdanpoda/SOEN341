@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <title>Base </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Design.css')}}"/>
+    </head>
+{% endblock %}
+<body>
+    {% block navbar %}
+    <h1>WELCOME {{session.username}} TO NAME OF THE WEBSITE</h1>
+
+
+  <nav class="navbar navbar-expand-md">
+  <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#main-navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="main-navigation">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="Welcome.html">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Login.html">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Ask_a_Question.html">Ask a question</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="SearchQuestions.html">Search a question</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Register.html">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href= "{{url_for('logout')}}">Log out</a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+  {% endblock %}
+{% block content %}
+<p1> Welcome to Stack overflow 2 website </p1>
+{% endblock %}
+</body>
+</html>

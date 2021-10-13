@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="515e33de-abfa-4c40-99aa-bb4c4ad09adb" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1zN6ebgdIZnqN1oThrvFPqieM6j" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.CSV/TSV/PSV" />
+  </component>
+  <component name="RunManager">
+    <configuration name="SOEN_341_Project" type="Python.FlaskServer">
+      <module name="SOEN_341_Project" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="515e33de-abfa-4c40-99aa-bb4c4ad09adb" name="Default Changelist" comment="" />
+      <created>1633976294591</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633976294591</updated>
+      <workItem from="1633976314187" duration="322000" />
+      <workItem from="1633982310784" duration="594000" />
+      <workItem from="1633982933710" duration="48000" />
+      <workItem from="1633983002487" duration="305000" />
+      <workItem from="1633983345018" duration="24000" />
+      <workItem from="1633983431851" duration="12000" />
+      <workItem from="1633983482761" duration="33000" />
+      <workItem from="1633983575789" duration="38000" />
+      <workItem from="1633983683935" duration="142000" />
+      <workItem from="1633983947545" duration="31000" />
+      <workItem from="1633984004091" duration="53000" />
+      <workItem from="1633984135137" duration="11000" />
+      <workItem from="1633984267176" duration="3000" />
+      <workItem from="1633984324839" duration="23000" />
+      <workItem from="1633984393527" duration="8000" />
+      <workItem from="1633984413472" duration="624000" />
+      <workItem from="1633985121562" duration="308000" />
+      <workItem from="1633985447348" duration="69000" />
+      <workItem from="1633985548383" duration="28000" />
+      <workItem from="1633985588003" duration="309000" />
+      <workItem from="1633985920099" duration="3004000" />
+      <workItem from="1633989396527" duration="136000" />
+      <workItem from="1633989570923" duration="427000" />
+      <workItem from="1633990031674" duration="312000" />
+      <workItem from="1633990582944" duration="13000" />
+      <workItem from="1633990619173" duration="58000" />
+      <workItem from="1633990813615" duration="36000" />
+      <workItem from="1633990939027" duration="336000" />
+      <workItem from="1633991343943" duration="847000" />
+      <workItem from="1633992228563" duration="14000" />
+      <workItem from="1633992397299" duration="149000" />
+      <workItem from="1633992593292" duration="657000" />
+      <workItem from="1633996331336" duration="184000" />
+      <workItem from="1633996692885" duration="259000" />
+      <workItem from="1633997515333" duration="23000" />
+      <workItem from="1633997576653" duration="9000" />
+      <workItem from="1633997671631" duration="24000" />
+      <workItem from="1633997705628" duration="1015000" />
+      <workItem from="1634061285080" duration="1781000" />
+      <workItem from="1634064357713" duration="1023000" />
+      <workItem from="1634065680101" duration="84000" />
+      <workItem from="1634065784629" duration="327000" />
+      <workItem from="1634066143760" duration="752000" />
+      <workItem from="1634066911565" duration="16000" />
+      <workItem from="1634066938507" duration="9000" />
+      <workItem from="1634066980382" duration="27000" />
+      <workItem from="1634067051249" duration="203000" />
+      <workItem from="1634067441043" duration="81000" />
+      <workItem from="1634067533804" duration="88000" />
+      <workItem from="1634067759266" duration="170000" />
+      <workItem from="1634067942598" duration="31000" />
+      <workItem from="1634068045217" duration="204000" />
+      <workItem from="1634068313261" duration="16000" />
+      <workItem from="1634068392225" duration="37000" />
+      <workItem from="1634070761252" duration="74000" />
+      <workItem from="1634070878514" duration="372000" />
+      <workItem from="1634071279890" duration="203000" />
+      <workItem from="1634071546497" duration="1067000" />
+      <workItem from="1634072639398" duration="20000" />
+      <workItem from="1634072685812" duration="1124000" />
+      <workItem from="1634073865035" duration="841000" />
+      <workItem from="1634074845474" duration="28000" />
+      <workItem from="1634074917268" duration="53000" />
+      <workItem from="1634074986414" duration="4526000" />
+      <workItem from="1634080676313" duration="765000" />
+      <workItem from="1634084902281" duration="500000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1398" height="196" key="GridCell.Tab.0.bottom" timestamp="1634085631541">
+      <screen x="0" y="25" width="1440" height="829" />
+    </state>
+    <state width="1398" height="196" key="GridCell.Tab.0.bottom/0.25.1440.828@0.25.1440.828" timestamp="1634085249055" />
+    <state width="1398" height="196" key="GridCell.Tab.0.bottom/0.25.1440.829@0.25.1440.829" timestamp="1634085631541" />
+    <state width="1398" height="154" key="GridCell.Tab.0.bottom/0.25.1440.830@0.25.1440.830" timestamp="1634063388600" />
+    <state width="1398" height="196" key="GridCell.Tab.0.center" timestamp="1634085631540">
+      <screen x="0" y="25" width="1440" height="829" />
+    </state>
+    <state width="1398" height="196" key="GridCell.Tab.0.center/0.25.1440.828@0.25.1440.828" timestamp="1634085249053" />
+    <state width="1398" height="196" key="GridCell.Tab.0.center/0.25.1440.829@0.25.1440.829" timestamp="1634085631540" />
+    <state width="1398" height="154" key="GridCell.Tab.0.center/0.25.1440.830@0.25.1440.830" timestamp="1634063388598" />
+    <state width="1398" height="196" key="GridCell.Tab.0.left" timestamp="1634085631539">
+      <screen x="0" y="25" width="1440" height="829" />
+    </state>
+    <state width="1398" height="196" key="GridCell.Tab.0.left/0.25.1440.828@0.25.1440.828" timestamp="1634085249053" />
+    <state width="1398" height="196" key="GridCell.Tab.0.left/0.25.1440.829@0.25.1440.829" timestamp="1634085631539" />
+    <state width="1398" height="154" key="GridCell.Tab.0.left/0.25.1440.830@0.25.1440.830" timestamp="1634063388597" />
+    <state width="1398" height="196" key="GridCell.Tab.0.right" timestamp="1634085631540">
+      <screen x="0" y="25" width="1440" height="829" />
+    </state>
+    <state width="1398" height="196" key="GridCell.Tab.0.right/0.25.1440.828@0.25.1440.828" timestamp="1634085249055" />
+    <state width="1398" height="196" key="GridCell.Tab.0.right/0.25.1440.829@0.25.1440.829" timestamp="1634085631540" />
+    <state width="1398" height="154" key="GridCell.Tab.0.right/0.25.1440.830@0.25.1440.830" timestamp="1634063388599" />
+    <state x="151" y="25" key="SettingsEditor" timestamp="1633996925752">
+      <screen x="0" y="25" width="1440" height="829" />
+    </state>
+    <state x="151" y="25" key="SettingsEditor/0.25.1440.829@0.25.1440.829" timestamp="1633996925752" />
+    <state x="417" y="266" key="com.intellij.ide.util.TipDialog" timestamp="1634080754679">
+      <screen x="0" y="25" width="1440" height="829" />
+    </state>
+    <state x="417" y="266" key="com.intellij.ide.util.TipDialog/0.25.1440.829@0.25.1440.829" timestamp="1634080754679" />
+    <state x="417" y="266" key="com.intellij.ide.util.TipDialog/0.25.1440.830@0.25.1440.830" timestamp="1633976321699" />
+    <state x="385" y="163" width="670" height="676" key="search.everywhere.popup" timestamp="1634066264045">
+      <screen x="0" y="25" width="1440" height="829" />
+    </state>
+    <state x="385" y="163" width="670" height="676" key="search.everywhere.popup/0.25.1440.829@0.25.1440.829" timestamp="1634066264045" />
+    <state x="385" y="163" width="670" height="676" key="search.everywhere.popup/0.25.1440.830@0.25.1440.830" timestamp="1634062583808" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SOEN_341_Project$SOEN_341_Project.coverage" NAME="SOEN_341_Project Coverage Results" MODIFIED="1634085249035" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>

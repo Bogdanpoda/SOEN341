@@ -1,0 +1,23 @@
+{% extends "Welcome.html" %}
+{% block head %}
+    {{super()}}
+{% endblock %}
+
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <h1>Create an account so you can ask and answer questions .</h1>
+
+
+    <form action="/register" method="post">
+     {{ form.csrf_token }}
+        <label >Username<input type="text" name="User_Name"/></label><br/>
+        <label>Your email address <input type="email" name="Email"/></label><br/>
+        <label>Password <input type="password" name="Password"/></label><br/>
+        <label> Repeat Password <input type="password" name="Password2"/></label><br/>
+        <button type="submit">Send</button>
+        <button type="reset">Clear</button>
+    </form>
+{% endblock %}
