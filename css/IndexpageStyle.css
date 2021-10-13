@@ -9,18 +9,19 @@ body {
     font-size: 18px;
     line-height: 2em;
     overflow-x: hidden;
-    background-color: darkgrey;
+    background-color: slategray;
 }
 
 a {
     transition: all 0.3s ease;
-    font-size: 22px;
+    font-size: 25px;
+     text-decoration: none;
     color:white;
 }
 
 a:hover {
     color: #7FFF00;
-    text-decoration: none;
+    text-decoration:underline;
 }
 
 
@@ -52,6 +53,7 @@ html {
   list-style-type: none;
   margin: 0;
   padding: 0;
+    
 
 }
 
@@ -60,6 +62,8 @@ html {
   margin-bottom: 7px;
   color: #ffffff;
   display: inline;
+    margin-right: 30px;
+
   
 }
 
@@ -124,7 +128,7 @@ html {
 
 .headerContainer
 {
-    background-color: dimgray;
+    background-color: #2F4F4F;
     text-align: center;
     color: #ffffff;
     box-shadow: 0 4px 7px rgba(0,0,0,0.50), 0 4px 8px rgba(0,0,0,0.24); 
@@ -174,7 +178,7 @@ input{
 /*for the label menu*/
 
 .dropbtn {
-  background-color: dimgray;
+  background-color: #2F4F4F;
   color: white;
   padding: 10px;
   font-size: 20px;
@@ -215,15 +219,17 @@ input{
 /*for the ask button*/
 
 .askbtn {
-  background-color: dimgray;
+  background-color: #2F4F4F;
   color: white;
   border-radius:22px;
   padding: 10px;
   font-size: 20px;
-    width: 160px;
+    width: 350px;
   border: none;
+margin-top: 40px;
+    height: 60px;
 }
-.
+
 
 .dropdown:hover .askbtn {background-color:  #FFD700;}
 
