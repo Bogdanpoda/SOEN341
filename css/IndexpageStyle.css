@@ -9,7 +9,7 @@ body {
     font-size: 18px;
     line-height: 2em;
     overflow-x: hidden;
-    background-color: slategray;
+    background-color: #5cdb95;
 }
 
 a {
@@ -20,7 +20,7 @@ a {
 }
 
 a:hover {
-    color: #7FFF00;
+    color: #05386b;
     text-decoration:underline;
 }
 
@@ -128,7 +128,7 @@ html {
 
 .headerContainer
 {
-    background-color: #2F4F4F;
+    background-color: #05386b;
     text-align: center;
     color: #ffffff;
     box-shadow: 0 4px 7px rgba(0,0,0,0.50), 0 4px 8px rgba(0,0,0,0.24); 
@@ -178,7 +178,7 @@ input{
 /*for the label menu*/
 
 .dropbtn {
-  background-color: #2F4F4F;
+  background-color:#05386b ;
   color: white;
   padding: 10px;
   font-size: 20px;
@@ -219,7 +219,7 @@ input{
 /*for the ask button*/
 
 .askbtn {
-  background-color: #2F4F4F;
+  background-color: #05386b;
   color: white;
   border-radius:22px;
   padding: 10px;
