@@ -1,5 +1,5 @@
 main {
-  background-color: red;
+  background-color: #5cdb95;
   padding: 20px;
 }
 
@@ -39,7 +39,7 @@ main {
     height: 35px;
     margin-top: 20px;
     border: none;
-    background-color: limegreen;
+    background-color: #05386b;
     color: white;
     font-size: 18px;
 }
