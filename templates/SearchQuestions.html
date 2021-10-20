@@ -1,0 +1,87 @@
+{% extends "Welcome.html" %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+
+<ol id="myUL">
+</ol>
+
+<script>
+
+function item(Question_id_param, question_text_param, user_name_param,Label_param) {
+            this.Question_id = Question_id_param;
+            this.Question_text = question_text_param;
+            this.User_name = user_name_param;
+            this.Label = Label_param;
+        }
+
+
+function what(){
+
+alert("how are you");
+
+}
+
+function myFunc(vars) {
+    return vars
+}
+
+function displayQuestions(){
+
+
+                var i;
+
+                var qlength= '{{ len }}';
+                var question=JSON.parse('{{ form2|safe }}');
+
+                for (i = 0; i < qlength ; i++){
+
+
+
+
+
+                var t = document.createTextNode(question[i][1]);
+
+                var label_text = document.createTextNode("programming");
+                var li = document.createElement("li");
+                var d = document.createElement("div");
+                var d2 = document.createElement("div");
+                var d3 = document.createElement("div");
+
+
+                d.className = "expense-item";
+                d2.className = "expense-item__description";
+                d3.className = "expense-item__price";
+
+
+
+                d2.appendChild(t);
+
+                d3.appendChild(label_text);
+
+                d2.appendChild(d3);
+
+                d.appendChild(d2);
+
+                li.appendChild(d);
+
+
+                document.getElementById("myUL").appendChild(li);
+                }
+
+
+}
+displayQuestions()
+
+
+
+
+
+
+
+
+</script>
+{% endblock %}
