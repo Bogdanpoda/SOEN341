@@ -6,8 +6,10 @@ from flask_login import UserMixin, login_user, login_required, logout_user, Logi
 from flask_wtf import FlaskForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import StringField, TextAreaField, PasswordField
-from wtforms.fields.html5 import EmailField
+from wtforms.fields.html5 import EmailField, IntegerField
 from wtforms.validators import InputRequired, Email, Length, Regexp, EqualTo
+from flask_wtf import CsrfProtect
+
 
 app = Flask(__name__)
 
@@ -213,8 +215,8 @@ def handle_Question():
             print last_question_tuple
             form.Question_ID = last_question_tuple[0] + 1  # add one to the User id of the new User
         # Insert the new entry the sql db
-        sql = "INSERT INTO Questions(Question_ID,Content) VALUES (%s, %s)"
-        val = (form.Question_ID, form.Question.data)
+        sql = "INSERT INTO Questions(Question_ID,Content,User_Name) VALUES (%s, %s, %s)"
+        val = (form.Question_ID, form.Question.data, session['username'])
         print val
         mycursor.execute(sql, val)
         mydb.commit()
@@ -233,11 +235,108 @@ class QuestionForm(FlaskForm):
 #Search questions feature
 #------------------------
 
-@app.route('/SearchQuestions.html',methods=['GET','POST'])
+@app.route('/SearchQuestions.html')
 def searches_form():
-    mycursor.execute("SELECT Question_ID,Content FROM Questions")
+    mycursor.execute("SELECT User_Name,Question_ID,Content FROM Questions")
     questions=mycursor.fetchall()
     return render_template('SearchQuestions.html', form=questions, len=len(questions))
+
+
+
+
+
+#Display a specific question
+
+@app.route('/getQuestion',methods=['GET','POST'])
+def handle_getQuestion():
+    form=GetQuestionForm()
+    if form.is_submitted():
+        print "submitted"
+
+    if form.validate():
+        print "valid"
+
+    if form.validate_on_submit():
+
+        #gettting the right questions from the db
+        mycursor.execute("SELECT User_Name,Question_ID,Content,Number_Of_Up_Votes FROM Questions")
+        questions = mycursor.fetchall()
+        right_question = questions[int(form.Question_ID.data)-1]
+
+        #get all the answers to the question from the db
+        sql = "SELECT Answers.User_Name, Answers.Content " \
+              "FROM Question_has_Answers, Answers " \
+              "WHERE Answers.Answer_ID = Question_has_Answers.Answer_ID  and Question_has_Answers.Question_ID = %s"
+        val = (form.Question_ID.data,)
+        mycursor.execute(sql, val)
+        answers=mycursor.fetchall()
+        print (answers)
+
+        return render_template('DisplayQuestion.html', form=form,question=right_question, answers=answers, len=len(answers))
+    else:
+        mycursor.execute("SELECT User_Name,Question_ID,Content FROM Questions")
+        questions = mycursor.fetchall()
+        return render_template('SearchQuestionsFail.html', form=form, questions=questions,len=len(questions))
+
+
+class GetQuestionForm(FlaskForm):
+    Question_ID = IntegerField("Question_ID",validators=[InputRequired()])
+
+
+#Answering a question
+
+class AnswerForm(FlaskForm):
+    Answer_ID=1
+    Answer=StringField("Answer",validators=[InputRequired()])
+    Question_ID=IntegerField("Question_ID",validators=[InputRequired()])
+    Upvote=IntegerField("Upvote")
+
+@app.route('/answer',methods=['GET','POST'])
+def handle_Answer():
+    form=AnswerForm()
+    if form.is_submitted():
+        print "submitted"
+
+    if form.validate():
+        print "valid"
+
+    if form.validate_on_submit():
+
+        #UPDATING THE ANSWER ID and its content
+
+        # sql query to retrieve the last row
+        mycursor.execute(
+            "SELECT Answer_ID FROM Answers WHERE Answer_ID=(SELECT max(Answer_ID) FROM Answers);")
+        last_answer_tuple = mycursor.fetchone()
+        # verify if it retrieve a tuple or not
+        if last_answer_tuple is None:
+            form.Answer_ID = 1
+        else:
+            print last_answer_tuple
+            form.Answer_ID = last_answer_tuple[0] + 1  # add one to the User id of the new User
+        sql = "INSERT INTO Answers(User_Name,Answer_ID,Content) VALUES (%s,%s,%s)"
+        val=(session["username"],form.Answer_ID,form.Answer.data)
+        mycursor.execute(sql,val)
+        mydb.commit()
+
+        #UPDATING THE Question_Has_Answer
+        sql="INSERT INTO Question_has_Answers(Question_ID,Answer_ID) VALUES(%s,%s)"
+        val=(form.Question_ID.data,form.Answer_ID)
+        mycursor.execute(sql, val)
+        mydb.commit()
+
+        #UPDATING THE NUMBER OF UPVOTES FOR THE QUESTION
+
+        if(int(form.Upvote.data)):
+            sql="UPDATE QUESTIONS SET Number_Of_Up_Votes=Number_Of_Up_Votes+1 WHERE Question_ID= %s"
+            val=(form.Question_ID.data,)
+            mycursor.execute(sql, val)
+            mydb.commit()
+        flash('Answer posted successfully')
+        return render_template('Welcome.html',form=form)
+    else:
+        flash('Invalid answer')
+        return render_template('Welcome.html',form=form)
 
 
 

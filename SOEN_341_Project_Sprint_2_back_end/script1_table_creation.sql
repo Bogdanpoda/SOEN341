@@ -1,7 +1,6 @@
 CREATE TABLE Users(
-	First_Name VARCHAR(255),
-    Last_Name VARCHAR(255),
-    Email_Address VARCHAR(255),
+	User_Name VARCHAR(255) unique,
+    Email_Address VARCHAR(255) unique,
     User_ID INT,
     Password VARCHAR(255), -- Really not good, but don't have time to add security features
     Primary key(User_ID),
@@ -47,5 +46,18 @@ CREATE TABLE Question_has_Answers(
 	
     Primary key(Question_ID,Answer_ID)
 );
+
+select* 
+from Users;
+
+Delete from Users;
+SET SQL_SAFE_UPDATES = 0;
+
+Drop TABLE Users;
+
+select*
+from Questions;
+
+
 
    

@@ -1,0 +1,35 @@
+{% extends "Welcome.html" %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<h1>{{ question[0] }} asked this questions</h1>
+<h2>Question ID: {{question[1]}}  <br>Content:<br><br> {{ question[2] }}</h2>
+<br>
+<br>
+<h3> Number of Upvotes: {{ question[3] }}</h3>
+<br>
+<br>
+<h4>ANSWERS</h4>
+  <ol>
+        {%for i in range(0,len) %}
+            <li>{{answers[i][0]}} answered: <br>               {{answers[i][1]}}</li>
+        {%endfor%}
+  </ol>
+
+<h5>Put your answer</h5>
+
+    <form action="/answer" method="post">
+     {{ form.csrf_token }}
+        <label>Answer<input type="text" name="Answer"/></label><br/>
+        <label>Please enter the right question ID, this will be removed in later versions <input type="number" name="Question_ID" /></label><br>
+        <label>Enter 1 if you want to upvote this question, this will work as nice button in later versions <input type="number" name="Upvote" /></label><br>
+        <button type="submit">Send</button>
+        <button type="reset">Clear</button>
+    </form>
+
+{% endblock %}

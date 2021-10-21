@@ -8,7 +8,7 @@
 {% endblock %}
 {% block content %}
 <h1>Error</h1>
- <div id="email">
+ <div>
     {% if form.errors %}
         <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -19,14 +19,17 @@
         </ul>
     {% endif %}
  </div>
-     <form action="/register" method="post">
-     {{ form.csrf_token }}
-        <label>Username <input type="text" name="User_Name"/></label><br/>
-        <label>Your email address <input type="email" name="Email"/></label><br/>
-        <label>Password <input type="password" name="Password"/></label><br/>
-        <label> Repeat Password <input type="password" name="Password2"/></label><br/>
-        <button type="submit">Send</button>
-        <button type="reset">Clear</button>
-    </form>
 
+<ol>
+    {%for i in range(0,len) %}
+        <li><button class="Questions" style="border: none">{{questions[i][2]}}</button></li></br>
+    {%endfor%}
+</ol>
+<form action="/getQuestion" method="post">
+    {{ form.csrf_token }}
+    <input type="number" id='questionID_Selected' name="Question_ID"/>
+     <button type="submit">Send</button>
+     <button type="reset">Clear</button>
+</form>
+<script  type=text/javascript src="{{ url_for('static', filename='Questions.js')}}"></script>
 {% endblock %}

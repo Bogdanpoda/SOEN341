@@ -1,0 +1,22 @@
+{% extends "Welcome.html" %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<form action="/getQuestion" method="post">
+ {{ form.csrf_token }}
+    <ol>
+        {%for i in range(0,len) %}
+            <li><button class="Questions" style="border: none">{{form[i][2]}}</button></li></br>
+        {%endfor%}
+    </ol>
+    <input type="number" id='questionID_Selected' name="Question_ID"/>
+    <button type="submit">Send</button>
+    <button type="reset">Clear</button>
+</form>
+<script  type=text/javascript src="{{ url_for('static', filename='Questions.js')}}"></script>
+{% endblock %}
