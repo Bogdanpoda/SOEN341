@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-    <h1>User Login Page</h1>
-    <p>Please enter your username and your password.</p>
-    <br>
-        <label>Username <input type="text" name="username"/></label><br/>
-        <label>Password <input type="password" name="password"/></label><br/>
+{% extends "Welcome.html" %}
+{% block head %}
+    {{super()}}
+{% endblock %}
+
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <h1>Please enter your address email and your password.</h1>
+
+
+    <form action="/login" method="post">
+     {{ form.csrf_token }}
+        <label>Username <input type="text" name="User_Name"/></label><br/>
+        <label>Password <input type="password" name="Password"/></label><br/>
         <button type="submit">Send</button>
         <button type="reset">Clear</button>
-        <button type="button"> Register/sign-up</button>
-</body>
-</html>
+    </form>
+{% endblock %}

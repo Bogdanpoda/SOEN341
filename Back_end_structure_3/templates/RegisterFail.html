@@ -8,7 +8,7 @@
 {% endblock %}
 {% block content %}
 <h1>Error</h1>
- <div id="email">
+ <div>
     {% if form.errors %}
         <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}

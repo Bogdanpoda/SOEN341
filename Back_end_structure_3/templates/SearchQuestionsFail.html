@@ -7,9 +7,8 @@
     {{ super() }}
 {% endblock %}
 {% block content %}
-<h1>What is your question {{session.username}} ?</h1>
-<h2>Error</h2>
- <div id="email">
+<h1>Error</h1>
+ <div>
     {% if form.errors %}
         <ul class="errors">
         {% for field_name, field_errors in form.errors|dictsort if field_errors %}
@@ -20,11 +19,16 @@
         </ul>
     {% endif %}
  </div>
-    <form action="/question" method="post">
-     {{ form.csrf_token }}
-        <label>Question<input type="text" name="Question"/></label><br/>
-        <button type="submit">Send</button>
-        <button type="reset">Clear</button>
-    </form>
 
+<form action="/getQuestion" method="post">
+ {{ form.csrf_token }}
+    <ol>
+        {%for i in range(0,len) %}
+             <input type="radio" name="Question_ID" value= {{questions[i][1]}}  >
+             <label>{{questions[i][0]}} asked :{{questions[i][2]}}</label>
+        {%endfor%}
+    </ol>
+    <button type="submit">Send</button>
+    <button type="reset">Clear</button>
+</form>
 {% endblock %}
