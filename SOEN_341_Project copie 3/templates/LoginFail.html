@@ -1,0 +1,23 @@
+{% extends "Welcome.html" %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<h1>Error</h1>
+ <div>
+     <p>Invalid username/password</p>
+ </div>
+     <form action="/login" method="post">
+     {{ form.csrf_token }}
+        <label>Username <input type="text" name="User_Name"/></label><br/>
+        <label>Password <input type="password" name="Password"/></label><br/>
+        <button type="submit">Send</button>
+        <button type="reset">Clear</button>
+    </form>
+
+{% endblock %}
