@@ -61,44 +61,7 @@ CREATE TABLE VOTE(
 	Primary key(User_Name,Question_ID)
 );
 
-DROP TABLE VOTE;
-	
 
-select* 
-from Users;
-
-Delete from Users;
-SET SQL_SAFE_UPDATES = 0;
-
-Drop TABLE Users;
-Drop Table Vote;
-
-select*
-from Questions;
-
-select* from Vote;
-
-select Users.User_Name, Answers.Content 
-FROM Question_has_Answers, Answers, Users 
-WHERE Answers.Answer_ID = Question_has_Answers.Answer_ID and Users.Answer_ID=Answers.Answer_ID
-	   and Question_has_Answers.Question_ID = 1;
-
-
-DROP TABLE Users;
-DROP TABLE Question_has_Answers;
-DROP TABLE Answers;
-DROP TABLE Questions;
-
-SET FOREIGN_KEY_CHECKS=1;  
-
-UPDATE QUESTIONS SET Number_Of_Up_Votes=Number_Of_Up_Votes+1 WHERE Question_ID=1;
-
-ALTER TABLE QUESTIONS
-ALTER Number_OF_Up_Votes SET DEFAULT 0;
-
-UPDATE QUESTIONS SET Number_Of_Up_Votes=0;
-
-SELECT * FROM VOTE;
 
 DELIMITER $$
 
@@ -120,11 +83,3 @@ begin
 end$$
 
 DELIMITER ;
-
-DROP trigger Update_Question_Vote;
-
-
-	
-
-
-
