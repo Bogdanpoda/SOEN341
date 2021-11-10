@@ -12,12 +12,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'loginstyle.css')}}">
 
     </head>
-
-</html>
-
 <body>
 
-<div class="headerPage">
+  <div class="headerPage">
                    <div class="col-3 headerContainer">
                    <h1> <a class="navigator" >StackUnderflow</a> </h1>
             </div>
@@ -32,21 +29,36 @@
 
               </div>
 
+ <div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
 
-<h1>Create an account so you can ask and answer questions .</h1>
-    <form action="/register" method="post">
-     {{ form.csrf_token }}
-        <label >Username<input type="text" name="User_Name"/></label><br/>
-        <label>Your email address <input type="email" name="Email"/></label><br/>
-        <label>Password <input type="password" name="Password"/></label><br/>
-        <label> Repeat Password <input type="password" name="Password2"/></label><br/>
-        <button type="submit">Send</button>
-        <button type="reset">Clear</button>
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <label>Login from</label>
+    </div>
+
+    <!-- Login Form -->
+    <form action="/login" method="post">
+         {{ form.csrf_token }}
+      <input type="text" id="login" class="fadeIn second"  name="User_Name" placeholder="login">
+      <input type="text" id="password" class="fadeIn third" name="Password" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="Register.html">Not signed in?</a>
+    </div>
+
+  </div>
+</div>
+
+
 
 </body>
 
 
 
-
+</html>
 

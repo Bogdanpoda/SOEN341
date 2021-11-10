@@ -2,14 +2,22 @@
   box-sizing: border-box;
 }
 
-body {
+ html, body {
     margin: 0;
     padding: 0;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
     line-height: 2em;
     overflow-x: hidden;
-    background-color: #5cdb95;
+    height:100%;
+    scroll-behavior: smooth;
+
+    background-color: #56baed;
+}
+
+.box {
+
+  height:100vh;
 }
 
 .navigator {
@@ -61,14 +69,17 @@ html {
   padding: 8px;
   margin-bottom: 7px;
   color: #ffffff;
-  display: inline;
+  display: block;
+    float:right;
     margin-right: 30px;
 
   
 }
 
 .menuParent{
-    text-align: right;
+
+     float:right;
+
 }
 
 
@@ -134,8 +145,9 @@ html {
     box-shadow: 0 4px 7px rgba(0,0,0,0.50), 0 4px 8px rgba(0,0,0,0.24); 
 }
 .headerPage{
-    
-    margin: 30px;
+    display: flex;
+  align-items: center;
+    margin: 20px;
 }
 
 
@@ -152,13 +164,13 @@ form{
     
 }
 
-input{
+.inputclass{
   border:none;
   outline:none;
   display:inline-block;
   height:34px;
   vertical-align:middle;
-  position:relative;
+
   bottom:14px;
   right:9px;
   border-radius:22px;
@@ -168,6 +180,20 @@ input{
   height: 50px;
     font-size: 25px;
    
+}
+
+.labelclass{
+background:transparent;
+    border: none;
+    bottom:23px;
+pointer-event: none;
+position:absolute;
+outline: none;
+Horizontal-align:right;
+font-family:Arial, sans-serif;
+
+
+
 }
 
 .questionField{

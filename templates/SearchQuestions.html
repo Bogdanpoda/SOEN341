@@ -5,19 +5,41 @@
 
 {% block content %}
 
+<div id="section">
 
-<ol id="myUL">
+    <ol id="myUL">
 </ol>
+
+<form action="/getQuestion" method="post" id="select_form" name="theform">
+    {{ form.csrf_token }}
+    <input type="hidden" id="qid" name="Question_ID"/>
+
+</form>
+
+
+</div>
+
 
 <script>
 
-function item(Question_id_param, question_text_param, user_name_param,Label_param) {
-            this.Question_id = Question_id_param;
-            this.Question_text = question_text_param;
-            this.User_name = user_name_param;
-            this.Label = Label_param;
+function item(li_param, d_param, d2_param,d3_param) {
+
+            this.li = li_param;
+            this.d = d_param;
+            this.d2 = d2_param;
+            this.d3 = d3_param;
         }
 
+function Car(li_param, d_param, d2_param, d3_param, qid_param) {
+  this.li = li_param;
+  this.d = d_param;
+  this.d2 = d2_param;
+  this.d3 = d3_param;
+  this.qid = qid_param;
+  }
+
+let listofelem = new Array();
+var mainarr = new Array();
 
 function what(){
 
@@ -37,44 +59,86 @@ function displayQuestions(){
                 var qlength= '{{ len }}';
                 var question=JSON.parse('{{ form2|safe }}');
 
+
                 for (i = 0; i < qlength ; i++){
 
+                var alabel="not defined";
+                if(question[i][2] !==""){
+                var alabel=question[i][2];
+                }
 
 
-
+                var questionid=question[i][0];
 
                 var t = document.createTextNode(question[i][1]);
 
-                var label_text = document.createTextNode("programming");
+                var label_text = document.createTextNode(alabel);
                 var li = document.createElement("li");
+                mainarr.push(li)
                 var d = document.createElement("div");
                 var d2 = document.createElement("div");
                 var d3 = document.createElement("div");
 
 
-                d.className = "expense-item";
-                d2.className = "expense-item__description";
-                d3.className = "expense-item__price";
+
+                var anitem=new Car(li, d, d2, d3, question[i][0]);
+                listofelem.push(anitem);
 
 
 
-                d2.appendChild(t);
-
-                d3.appendChild(label_text);
-
-                d2.appendChild(d3);
-
-                d.appendChild(d2);
-
-                li.appendChild(d);
+                listofelem[i].d.className = "expense-item";
+                listofelem[i].d2.className = "expense-item__description";
+                listofelem[i].d3.className = "expense-item__price";
 
 
-                document.getElementById("myUL").appendChild(li);
+
+
+
+
+
+
+
+
+               listofelem[i].d2.appendChild(t);
+
+                listofelem[i].d3.appendChild(label_text);
+
+                listofelem[i].d2.appendChild(listofelem[i].d3);
+
+                 listofelem[i].d.appendChild(listofelem[i].d2);
+
+
+                listofelem[i].li.appendChild( listofelem[i].d);
+
+
+                document.getElementById("myUL").appendChild(listofelem[i].li);
                 }
 
 
 }
 displayQuestions()
+
+
+var i;
+var divarr= document.getElementsByClassName("expense-item");
+for(i= 0; i<listofelem.length; i++){
+listofelem[i].d.onclick =function (){
+
+                var div2 = (this.parentElement)
+                var ind2 = mainarr.indexOf(div2);
+                document.getElementById("qid").value=listofelem[ind2].qid;
+
+                document.theform.submit();
+
+
+
+                }
+
+
+
+
+
+}
 
 
 

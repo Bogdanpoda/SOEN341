@@ -14,30 +14,48 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'ExpenseItem.css')}}">
 
 
+
+
+
     </head>
 {% endblock %}
 <body>
     {% block navbar %}
+    <script>
+
+    function dummy(alabel){
+    if(alabel=="prog"){
+    document.getElementById("label").value="programming";
+    }
+    else if(alabel == "sport"){
+    document.getElementById("label").value="sports";
+    }
+    else{
+    document.getElementById("label").value="education";
+    }
+    }
 
 
-          <div class="row" >
+
+
+    </script>
+
+
+            <div class="box">
               <div class="headerPage">
                    <div class="col-3 headerContainer">
                    <h1> <a class="navigator" >StackUnderflow</a> </h1>
             </div>
             <div class="col-9 menuParent">
                    <ul class="menu">
-                        <li id="nophone"> <a class="navigator" href="#home&t=1s&p=right">Ask</a></li>
-                        <li id="nophone"><a class="navigator" href=SearchQuestions.html>Search</a></li>
-                        <li id="nophone"><a class="navigator" href="#accom&t=2s&p=up">Login/sign-up</a></li>
                         <li id="nophone">Hello {{session.username}} </li>
+                        <li id="nophone"><a class="navigator" href="Login.html">Login/sign-up</a></li>
+                       <li id="nophone"><a class="navigator" href="#section">Search</a></li>
+                       <li id="nophone"> <a class="navigator" href="#home&t=1s&p=right">Ask</a></li>
                     </ul>
                 </div>
 
-
               </div>
-
-          </div>
 
           <div class="row">
               <div class="col-12 questionField">
@@ -45,9 +63,8 @@
                   <form action="/question" method="post" id="ask_form">
                        {{ form.csrf_token }}
 
-                       <span>
-                        <input type="text" placeholder="Ask a Question" type="text" name="Question" />
-                        </span>
+                        <input class="inputclass" type="text" placeholder="Ask a Question" name="Question" />
+                        <input class="labelclass" type="text" id="label" name="Label" readonly >
 
               </form>
                       </div>
@@ -60,9 +77,9 @@
                   <div class="dropdown">
                 <button class="dropbtn">Labels</button>
                     <div class="dropdown-content">
-                        <a href="#">programmming</a>
-                        <a href="#">sports</a>
-                        <a href="#">educational</a>
+                        <a onclick="dummy('prog')" id="prog" href="#">programmming </a>
+                        <a onclick="dummy('sport')" id="sport" href="#">sports</a>
+                        <a onclick="dummy('edu')" id="edu" href="#">educational</a>
                     </div>
                 </div>
               </div>
@@ -79,10 +96,19 @@
 
 
           </div>
+
+                </div>
+
+
   {% endblock %}
 {% block content %}
 {% endblock %}
 
 
+
+
+
 </body>
+
+
 </html>
