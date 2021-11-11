@@ -1,0 +1,16 @@
+{% extends "Welcome.html" %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<script>
+    alert(" Account successfully created {{ name }}! You can now login");
+
+</script>
+
+{% endblock %}

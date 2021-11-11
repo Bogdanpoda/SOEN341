@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Base </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Design.css')}}"/>
+
+     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+       <script src="https://cdn.layerjs.org/libs/layerjs/layerjs-0.5.2.min.js" defer=""></script>
+  <link href="https://cdn.layerjs.org/libs/layerjs/layerjs-0.5.2.css" type="text/css" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'IndexpageStyle.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'loginstyle.css')}}">
+
+    </head>
+<body>
+
+  <div class="headerPage">
+                   <div class="col-3 headerContainer">
+                   <h1> <a class="navigator" >StackUnderflow</a> </h1>
+            </div>
+            <div class="col-9 menuParent">
+                   <ul class="menu">
+                        <li id="nophone">Hello {{session.username}} </li>
+                        <li id="nophone"><a class="navigator" href="Login.html">Login/sign-up</a></li>
+                       <li id="nophone"><a class="navigator" href=SearchQuestions.html>Search</a></li>
+                       <li id="nophone"> <a class="navigator" href="#home&t=1s&p=right">Ask</a></li>
+                    </ul>
+                </div>
+
+              </div>
+
+ <div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <label>Login from</label>
+    </div>
+
+    <!-- Login Form -->
+    <form action="/login" method="post">
+         {{ form.csrf_token }}
+      <input type="text" id="login" class="fadeIn second"  name="User_Name" placeholder="login">
+      <input type="text" id="password" class="fadeIn third" name="Password" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="Register.html">Not signed in?</a>
+    </div>
+
+  </div>
+</div>
+
+
+
+</body>
+
+
+
+</html>
+

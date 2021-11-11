@@ -1,0 +1,14 @@
+{% extends "Welcome.html" %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<script>
+    alert("Login successful! Welcome {{ name }}");
+</script>
+{% endblock %}
