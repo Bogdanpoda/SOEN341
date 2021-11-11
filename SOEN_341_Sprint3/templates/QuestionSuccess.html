@@ -1,0 +1,13 @@
+{% extends "Welcome.html" %}
+{% block head %}
+    {{ super() }}
+
+{% endblock %}
+
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+    <h1> Question asked successfully {{session.username}} !</h1>
+    <h2> You can see the questions in the search questions tab</h2>
+{% endblock %}
