@@ -9,7 +9,7 @@ This is the repository that contains the code, documentation, issues and much mo
 Please visit the [task board](https://github.com/Bogdanpoda/SOEN341/projects/1) of this repository for the main agile board used for the project.
 
 ## Team Members
-Bogdan Podariu - [Bogdanpoda](https://github.com/Bogdanpoda)<br />
+Bogdan Podariu (Team lead) - [Bogdanpoda](https://github.com/Bogdanpoda)<br />
 Jason Novio - [Jason-817](https://github.com/Jason-817)<br />
 Nadia Beauregard- [nadiaaab](https://github.com/nadiaaab) <br />
 Amish Patel - [Pineapple920](https://github.com/Pineapple920) <br />
