@@ -150,7 +150,9 @@ def handle_Login():
             login_user(user)  # must be user class
             session['username'] = form2.User_Name.data
            # return redirect(url_for('_login_response', name=form2.User_Name.data, form=form))
-            return render_template('LoginSuccess.html', form=form, name=form2.User_Name.data)
+            responce = make_response(render_template('LoginSuccess.html', form=form, name=form2.User_Name.data, message=message))
+            responce.headers.set('message', 'Logged in')
+            return responce
 
 
         else:
