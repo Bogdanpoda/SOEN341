@@ -4,13 +4,21 @@ import json
 import psycopg2
 import email
 #import email_validator
-from flask import Flask, render_template, redirect, url_for, session, flash, jsonify, make_response
-from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager, current_user
+#from flask import Flask, render_template, redirect, url_for, session, flash, jsonify, make_response
+#from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager, current_user
+#from flask_wtf import FlaskForm
+#from werkzeug.security import generate_password_hash, check_password_hash
+#from wtforms import StringField, TextAreaField, PasswordField, RadioField
+#from wtforms.fields.html5 import EmailField
+#from wtforms.validators import InputRequired, Email, Length, Regexp, EqualTo
+
+import psycopg2
+from flask import Flask, render_template, redirect, session, flash, make_response, current_app
+from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager
 from flask_wtf import FlaskForm
-from werkzeug.security import generate_password_hash, check_password_hash
-from wtforms import StringField, TextAreaField, PasswordField, RadioField
+from wtforms import StringField, PasswordField, RadioField
 from wtforms.fields.html5 import EmailField
-from wtforms.validators import InputRequired, Email, Length, Regexp, EqualTo
+from wtforms.validators import InputRequired, Email, Length
 
 app = Flask(__name__)
 
