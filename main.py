@@ -3,7 +3,7 @@ import json
 
 import psycopg2
 import email
-import email_validator
+#import email_validator
 from flask import Flask, render_template, redirect, url_for, session, flash, jsonify, make_response
 from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager, current_user
 from flask_wtf import FlaskForm
