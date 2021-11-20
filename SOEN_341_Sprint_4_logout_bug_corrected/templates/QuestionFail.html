@@ -1,0 +1,23 @@
+{% extends "Welcome.html" %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block navbar %}
+    {{ super() }}
+{% endblock %}
+{% block content %}
+<h1>What is your question {{session.username}} ?</h1>
+<h2>Error</h2>
+ <div id="email">
+    {% if form.errors %}
+        <ul class="errors">
+        {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+            {% for error in field_errors %}
+                <li>{{ form[field_name].label }}: {{ error }}</li>
+            {% endfor %}
+        {% endfor %}
+        </ul>
+    {% endif %}
+ </div>
+{% endblock %}
