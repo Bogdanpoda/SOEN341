@@ -5,4 +5,3 @@ pytest-randomly==1.2.3 # needed for python 2.7+3.4
 Flask-Testing==0.8.0
 pylint
 pylint-flask-sqlalchemy
-PYTHONPATH=. pytest
