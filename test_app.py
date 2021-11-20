@@ -2,6 +2,7 @@ import unittest
 import pytest
 import os
 import tempfile
+from main import app
 
 
 class MyTestCase(unittest.TestCase):
