@@ -8,6 +8,5 @@ pylint-flask-sqlalchemy
 flask_login
 flask_wtf
 wtforms
-wtforms.fields.html5
 wtforms.validators
 werkzeug.security
