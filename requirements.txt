@@ -9,4 +9,3 @@ flask_login
 flask_wtf
 wtforms
 wtforms.validators
-werkzeug.security

@@ -17,7 +17,7 @@ import email
 
 import psycopg2
 from flask import Flask, render_template, redirect, session, flash, make_response, current_app
-from werkzeug.security import generate_password_hash, check_password_hash
+#from werkzeug.security import generate_password_hash, check_password_hash
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField
 from wtforms.validators import InputRequired, Email, Length
