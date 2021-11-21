@@ -17,11 +17,12 @@ import email
 
 import psycopg2
 from flask import Flask, render_template, redirect, session, flash, make_response, current_app
-from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager
+
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import InputRequired, Email, Length
+from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager
 
 app = Flask(__name__)
 

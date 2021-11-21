@@ -4,12 +4,6 @@ import os
 import tempfile
 from main import app
 
-from flask import Flask
-from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, RadioField
-from wtforms.fields.html5 import EmailField
-from wtforms.validators import InputRequired, Email, Length
 
 
 
