@@ -9,3 +9,4 @@ flask_login
 flask_wtf
 wtforms
 wtforms.validators
+wtforms.fields.html5
