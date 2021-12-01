@@ -4,9 +4,6 @@ from types import SimpleNamespace
 
 import psycopg2
 import pytest
-import os
-import tempfile
-import testing.postgresql
 
 from main import app
 
