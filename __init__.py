@@ -1,1 +1,2 @@
-import pathlib, sys
+import sys
+sys.path.append('.')
