@@ -11,4 +11,3 @@ wtforms
 wtforms.validators
 email_validator
 psycopg2
-psycopg2._psycopg
