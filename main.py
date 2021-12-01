@@ -4,7 +4,6 @@ import os
 
 import psycopg2
 
-
 from flask import render_template, redirect, session, flash, make_response
 from flask import Flask
 from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager
@@ -12,7 +11,6 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField
 #from wtforms.fields.html5 import EmailField
 from wtforms.validators import InputRequired, Email, Length
-
 
 app = Flask(__name__)
 
@@ -154,10 +152,8 @@ def handle_Login():
             message ="Logged in!"
            # return redirect(url_for('_login_response', name=form2.User_Name.data, form=form))
 
-
             responce= make_response(render_template('LoginSuccess.html',form=form, name=form2.User_Name.data,message=message))
             responce.headers.set('message','Logged in')
-
             return responce
 
 
