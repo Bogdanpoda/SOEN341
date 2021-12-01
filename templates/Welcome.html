@@ -29,72 +29,59 @@
             </div>
             <div class="col-9 menuParent">
                    <ul class="menu">
-                       <li id="nophone"> <a class="navigator" href="{{url_for('logout')}}">Logout</a></li>
-                        <li id="nophone">Hello {{session.username}} </li>
-                        <li id="nophone"><a class="navigator" href="Login.html">Login/sign-up</a></li>
-                       <li id="nophone"><a class="navigator" href="#section">Search</a></li>
-                       <li id="nophone"> <a class="navigator" href="#home&t=1s&p=right">Ask</a></li>
+                       <li > <a class="navigator" href="{{url_for('logout')}}">Logout</a></li>
+                        <li >Hello {{session.username}} </li>
+                        <li ><a class="navigator" href="Login.html">Login/sign-up</a></li>
+                       <li ><a class="navigator" href="#section">Search</a></li>
+                       <li > <a class="navigator" href="#home&t=1s&p=right">Ask</a></li>
                     </ul>
                 </div>
 
               </div>
 
-
-
-
-
           <div class="row">
               <div class="center">
-
                   <a id="asklabel" onclick="selectAsk()" class="navigator"  style="margin-right: 7vw" href="#" >Ask a question</a>
                   <a id="searchlabel" onclick="selectSearch()" class="navigator"  style="margin-left: 7vw" href="#" >search question</a>
-
-
                 </div>
-
               <div class="col-12 questionField">
                   <div class="fields autocomplete">
+                        <form autocomplete="off" action="/question" method="post" id="ask_form">
+                            {{ form.csrf_token }}
 
-                  <form autocomplete="off" action="/question" method="post" id="ask_form">
-                       {{ form.csrf_token }}
-
-                        <input id="myInput" class="inputclass" type="text" placeholder="Ask a Question" name="Question" />
-                        <button hidden id="searchbtn" type="button" style="border:none; background-color: transparent;"><img src="{{url_for('static', filename='icons8-search-64.png')}}"></button>
-                        <input class="labelclass" type="text" id="label" name="Label" readonly >
-
-              </form>
-                      </div>
+                            <input id="myInput" class="inputclass" type="text" placeholder="Ask a Question" name="Question" />
+                            <button hidden id="searchbtn" type="button" style="border:none; background-color: transparent;"><img src="{{url_for('static', filename='icons8-search-64.png')}}"></button>
+                            <input class="labelclass" type="text" id="label" name="Label" readonly >
+                        </form>
+                  </div>
               </div>
           </div>
 
 
-          <div class="row">
-              <div class="col-12" style="text-align: center">
-                  <div class="dropdown">
-                <button id="labelbtn" class="dropbtn">Labels</button>
-                    <div class="dropdown-content">
-                        <a onclick="dummy('prog')" id="prog" href="#">programmming </a>
-                        <a onclick="dummy('sport')" id="sport" href="#">sports</a>
-                        <a onclick="dummy('edu')" id="edu" href="#">educational</a>
-                        <a onclick="dummy('General')" id="gen" href="#">General</a>
+
+
+                <div class="row">
+                    <div class="col-12" style="text-align: center">
+                        <div class="dropdown">
+                            <button id="labelbtn" class="dropbtn">Labels</button>
+                                <div class="dropdown-content">
+                                    <a onclick="dummy('prog')" id="prog" href="#">programmming </a>
+                                    <a onclick="dummy('sport')" id="sport" href="#">sports</a>
+                                    <a onclick="dummy('edu')" id="edu" href="#">educational</a>
+                                    <a onclick="dummy('General')" id="gen" href="#">General</a>
+                                </div>
+                        </div>
                     </div>
                 </div>
-              </div>
-          </div>
 
           <div class="row">
               <div class="col-12" style="text-align: center">
                   <div class="dropdown">
                       <button id="askBtn" class="askbtn" type="submit" form="ask_form"> Ask!</button>
-
                   </div>
-
               </div>
-
-
           </div>
-
-                </div>
+            </div>
 
 
   {% endblock %}
