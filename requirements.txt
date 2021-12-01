@@ -7,6 +7,6 @@ pylint
 pylint-flask-sqlalchemy
 flask_login
 flask_wtf
-wtforms
+wtforms==2.3.3
 wtforms.validators
-wtforms.fields.html5==2.3.3
+wtforms.fields.html5
