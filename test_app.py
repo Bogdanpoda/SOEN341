@@ -20,9 +20,9 @@ class MyTestCase(unittest.TestCase):
         app.config['TESTING'] = True
         app.config['WTF_CSRF_ENABLED'] = False
         app.config['DEBUG'] = False
-        #dsn = "dbname='" + "SOEN341" + "' user='" + "postgres" + "' host='localhost' password='" + "000Poda19996934*" + "'"
-       # dbConn = psycopg2.connect(dsn)
-        #self.postgresql = psycopg2.connect(dsn)
+        dsn = "dbname='" + "d31l1458rvtpdh" + "' user='" + "bawfkbhotaauai" + "' host='ec2-44-193-111-218.compute-1.amazonaws.com' password='" + "4498aa8d9bf9269256f361238ead8e6a431f0882fd393693fd8e38655f484ca3" + "'"
+        dbConn = psycopg2.connect(dsn)
+        self.postgresql = psycopg2.connect(dsn)
         self.app = app.test_client()
 
     # executed after each test
@@ -47,7 +47,7 @@ class MyTestCase(unittest.TestCase):
         )
 
     def test_valid_user_registration(self):
-        response = self.login('bogbog', '12345678')
+        response = self.login('youngpanawan', '12345678')
         self.assertEqual(response.status_code, 200)
         self.assertIn("Logged in", response.headers['message'])
 
