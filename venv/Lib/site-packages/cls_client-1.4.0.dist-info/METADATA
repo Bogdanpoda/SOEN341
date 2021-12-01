@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: cls-client
+Version: 1.4.0
+Summary: 
+License: MIT
+Author: Dave Gaeddert
+Author-email: dave.gaeddert@dropseed.dev
+Requires-Python: >=3.6.2,<4.0.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9

@@ -9,3 +9,6 @@ flask_login
 flask_wtf
 wtforms
 wtforms.validators
+email_validator
+psycopg2-binary==2.8.3
+

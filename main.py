@@ -1,29 +1,18 @@
-import sys
-sys.path.append('.')
 
-import csv
 import json
+import os
 
 import psycopg2
-import email
-#import email_validator
-#from flask import Flask, render_template, redirect, url_for, session, flash, jsonify, make_response
-#from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager, current_user
-#from flask_wtf import FlaskForm
 
-#from wtforms import StringField, TextAreaField, PasswordField, RadioField
-#from wtforms.fields.html5 import EmailField
-#from wtforms.validators import InputRequired, Email, Length, Regexp, EqualTo
 
-import psycopg2
-from flask import Flask, render_template, redirect, session, flash, make_response, current_app
-#from werkzeug.security import generate_password_hash, check_password_hash
+from flask import render_template, redirect, session, flash, make_response
+from flask import Flask
+from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField
-from wtforms.validators import InputRequired, Email, Length
 #from wtforms.fields.html5 import EmailField
+from wtforms.validators import InputRequired, Email, Length
 
-from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager
 
 app = Flask(__name__)
 
@@ -37,10 +26,10 @@ app.config.update(dict(
 ))
 
 mydb = psycopg2.connect(
-    host="localhost",
-    database="SOEN341",
-    user="postgres",
-    password="000Poda19996934*")
+    host="ec2-44-193-111-218.compute-1.amazonaws.com",
+    database="d31l1458rvtpdh",
+    user="bawfkbhotaauai",
+    password="4498aa8d9bf9269256f361238ead8e6a431f0882fd393693fd8e38655f484ca3")
 
 mycursor = mydb.cursor()
 
@@ -111,7 +100,7 @@ def handle_register():
 class RegisterForm(FlaskForm):
     User_ID = 1
     User_Name = StringField('User_Name', validators=[InputRequired(), Length(4, 64)])
-    Email = EmailField('Email', validators=[InputRequired(), Email()])
+    Email = StringField('Email', validators=[InputRequired(), Email()])
     Password = PasswordField('Password', validators=[InputRequired(), Length(8, 64)])
     Password2 = PasswordField('Repeat Password', validators=[InputRequired()])
 
@@ -162,15 +151,20 @@ def handle_Login():
             print("OK")
             login_user(user)  # must be user class
             session['username'] = form2.User_Name.data
+            message ="Logged in!"
            # return redirect(url_for('_login_response', name=form2.User_Name.data, form=form))
-            responce = make_response(render_template('LoginSuccess.html', form=form, name=form2.User_Name.data, message=message))
-            responce.headers.set('message', 'Logged in')
+
+
+            responce= make_response(render_template('LoginSuccess.html',form=form, name=form2.User_Name.data,message=message))
+            responce.headers.set('message','Logged in')
+
             return responce
 
 
         else:
             print("Fail")
             flash('Incorrect username/password!')
+
             return render_template('LoginFail.html', form=form)
     else:
         return render_template('LoginFail.html', form=form)
@@ -202,13 +196,6 @@ class User(UserMixin):
     def get(self):
         return self.id
 
-
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    session['username'] = ""
-    return redirect('/')
 
 
 # Ask a question Feature
@@ -268,6 +255,25 @@ class QuestionForm(FlaskForm):
     Question = StringField('Question',validators=[InputRequired(), Length(4, 1064)])
     Label = StringField('Label')
 
+class User(UserMixin):
+    id = 1
+    User_Name = ""
+
+    def get(self):
+        return self.id
+
+@app.route('/logout')
+# @login_required
+def logout():
+    if session['username'] == "":
+        print("good")
+        form = QuestionForm()
+        return render_template('Welcome.html', form=form)
+    else:
+        logout_user()
+        session['username'] = ""
+        return redirect('/')
+
 
 # Search questions feature
 # ------------------------
@@ -276,7 +282,7 @@ class QuestionForm(FlaskForm):
 
 @app.route('/SearchQuestions.html', methods=['GET', 'POST'])
 def searches_form():
-    mycursor.execute("SELECT Question_ID,Content,Label,User_name FROM Questions")
+    mycursor.execute("SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
     questions = mycursor.fetchall()
     form2=questions
     form3=GetQuestionForm()

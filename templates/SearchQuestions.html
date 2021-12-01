@@ -1,14 +1,28 @@
 {% extends "Welcome.html" %}
 {% block head %}
     {{ super() }}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'templatemo-video-catalog.css')}}">
+
 {% endblock %}
 
 {% block content %}
 
 <div id="section">
 
-    <ol id="myUL">
-</ol>
+
+
+
+
+    <div id="myUL" class="row tm-catalog-item-list" style=" margin: 0 auto;">
+
+
+    </div>
+
+
+
+
+
+
 
 <form action="/getQuestion" method="post" id="select_form" name="theform">
     {{ form.csrf_token }}
@@ -22,19 +36,9 @@
 
 <script>
 
-function item(li_param, d_param, d2_param,d3_param) {
-
-            this.li = li_param;
-            this.d = d_param;
-            this.d2 = d2_param;
-            this.d3 = d3_param;
-        }
-
-function Car(li_param, d_param, d2_param, d3_param, qid_param) {
-  this.li = li_param;
-  this.d = d_param;
+function Car( d1_param, d2_param, qid_param) {
+  this.d1 = d1_param;
   this.d2 = d2_param;
-  this.d3 = d3_param;
   this.qid = qid_param;
   }
 
@@ -43,8 +47,8 @@ var mainarr = new Array();
 
 function what(){
 
-alert("how are you");
-
+var question=JSON.parse('{{ form2|safe }}');
+alert(question);
 }
 
 function myFunc(vars) {
@@ -59,59 +63,114 @@ function displayQuestions(){
                 var qlength= '{{ len }}';
                 var question=JSON.parse('{{ form2|safe }}');
 
-
                 for (i = 0; i < qlength ; i++){
 
-                var alabel="not defined";
+                var alabel="General";
                 if(question[i][2] !==""){
                 var alabel=question[i][2];
                 }
-
-
                 var questionid=question[i][0];
-
                 var t = document.createTextNode(question[i][1]);
-
+                var noAnswers = document.createTextNode("Not Answered");
+                var isAnswered = document.createTextNode("This question was answered");
                 var label_text = document.createTextNode(alabel);
-                var li = document.createElement("li");
-                mainarr.push(li)
-                var d = document.createElement("div");
+
+
+                var d1 = document.createElement("div");
                 var d2 = document.createElement("div");
+                var pa1= document.createElement("p");
+                var pa11= document.createElement("p");
                 var d3 = document.createElement("div");
+                var d4 = document.createElement("div");
+                var header1= document.createElement("h2");
+                var pa2= document.createElement("p");
+                var d5 = document.createElement("div");
+                var ima1 = document.createElement("img");
+                var s1=document.createElement("span");
+                var ima2 = document.createElement("img");
+                var s2=document.createElement("span");
+                var l1=document.createElement("label");
 
+                s1.innerHTML=question[i][5];
+                s2.innerHTML=question[i][6];
 
+                mainarr.push(d1)
 
-                var anitem=new Car(li, d, d2, d3, question[i][0]);
+                var anitem=new Car(d1, d2,question[i][0]);
                 listofelem.push(anitem);
 
+                listofelem[i].d1.className = "col-lg-4 col-md-6 col-sm-12 tm-catalog-item";
+                listofelem[i].d2.className = "position-relative tm-thumbnail-container";
+                pa1.className="img-fluid tm-catalog-item-img";
+                d3.className = "p-4 tm-bg-gray tm-catalog-item-description";
+                header1.className="tm-text-primary mb-3 tm-catalog-item-title";
+                pa2.className="tm-catalog-item-text";
+                pa11.className="user_tag";
+                pa11.style.color= "#20B2AA";
+                pa11.style.fontWeight = "bold";
+                pa11.innerHTML="By "+ question[i][3];
+
+                ima1.src="{{url_for('static', filename='icons8-thumbs-up-30.png')}}";
+                ima2.src="{{url_for('static', filename='icons8-pouces-vers-le-bas-30.png')}}";
+                l1.className="tagClass";
 
 
-                listofelem[i].d.className = "expense-item";
-                listofelem[i].d2.className = "expense-item__description";
-                listofelem[i].d3.className = "expense-item__price";
+                 var anAnswer="None";
+                 var Answer_label= "No answer";
+                 d4.className= "error-msg";
+
+
+                if(question[i][4] !=""){
+
+                 anAnswer=question[i][4];
+                 d4.className= "success-msg";
+                 d4.appendChild(isAnswered);
+                 Answer_label= "Answered by "+question[i][3];
+                 var ansLabel=document.createTextNode(Answer_label);
+
+                 header1.innerHTML=Answer_label;
+                 pa2.innerHTML=anAnswer;
+
+                }
+                else{
+                d5.className="item-footer";
+                d4.appendChild(noAnswers);
+               header1.innerHTML=Answer_label;
+                 pa2.innerHTML=anAnswer;
+                }
 
 
 
 
+                pa1.appendChild(t);
+                l1.appendChild(label_text);
+
+                d5.appendChild(ima1);
+                d5.appendChild(s1);
+                d5.appendChild(ima2);
+                d5.appendChild(s2);
+                d5.appendChild(l1);
+
+                d3.appendChild(d4);
+                d3.appendChild(header1);
+                d3.appendChild(pa2);
+                var strlen=question[i][1].length;
+                while(strlen>0){
+                d3.appendChild(document.createElement("br"));
+                strlen-=70;
+
+                }
+                d3.appendChild(d5);
+
+                listofelem[i].d2.appendChild(pa1);
+                listofelem[i].d2.appendChild(pa11);
+                listofelem[i].d1.appendChild(listofelem[i].d2);
+                listofelem[i].d1.appendChild(d3);
+
+                document.getElementById("myUL").appendChild(listofelem[i].d1);
 
 
 
-
-
-
-               listofelem[i].d2.appendChild(t);
-
-                listofelem[i].d3.appendChild(label_text);
-
-                listofelem[i].d2.appendChild(listofelem[i].d3);
-
-                 listofelem[i].d.appendChild(listofelem[i].d2);
-
-
-                listofelem[i].li.appendChild( listofelem[i].d);
-
-
-                document.getElementById("myUL").appendChild(listofelem[i].li);
                 }
 
 
@@ -120,24 +179,17 @@ displayQuestions()
 
 
 var i;
-var divarr= document.getElementsByClassName("expense-item");
+var divarr= document.getElementsByClassName("position-relative");
 for(i= 0; i<listofelem.length; i++){
-listofelem[i].d.onclick =function (){
+listofelem[i].d2.onclick =function (){
 
                 var div2 = (this.parentElement)
                 var ind2 = mainarr.indexOf(div2);
                 document.getElementById("qid").value=listofelem[ind2].qid;
 
-                document.theform.submit();
-
-
+                 document.theform.submit();
 
                 }
-
-
-
-
-
 }
 
 
