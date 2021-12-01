@@ -1,12 +1,31 @@
-{% extends "Welcome.html" %}
-{% block head %}
-    {{ super() }}
-{% endblock %}
 
-{% block navbar %}
-    {{ super() }}
-{% endblock %}
-{% block content %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>QuestionDisplay </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'IndexpageStyle.css')}}">
+</head>
+
+<body>
+<div class="headerPage">
+                   <div class="col-3 headerContainer">
+                   <h1> <a class="navigator" >StackUnderflow</a> </h1>
+            </div>
+            <div class="col-9 menuParent">
+                   <ul class="menu">
+                       <li > <a class="navigator" href="{{url_for('logout')}}">Logout</a></li>
+                        <li >Hello {{session.username}} </li>
+                        <li ><a class="navigator" href="Login.html">Login/sign-up</a></li>
+                       <li ><a class="navigator" href="#section">Search</a></li>
+                       <li > <a class="navigator" href="#home&t=1s&p=right">Ask</a></li>
+                    </ul>
+                </div>
+
+              </div>
+
+
 <h1>{{ question[0] }} asked this questions</h1>
 <h2>Question ID: {{question[1]}}  <br>Content:<br><br> {{ question[2] }}</h2>
 <br>
@@ -69,4 +88,11 @@
         <button type="reset">Clear</button>
     </form>
 
-{% endblock %}
+
+</body>
+
+
+
+</html>
+
+

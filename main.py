@@ -12,6 +12,7 @@ from wtforms import StringField, PasswordField, RadioField
 #from wtforms.fields.html5 import EmailField
 from wtforms.validators import InputRequired, Email, Length
 
+
 app = Flask(__name__)
 
 login_manager = LoginManager()
@@ -294,17 +295,29 @@ def handle_getQuestion():
     if form3.is_submitted():
         print ("submitted")
 
+
     if form3.validate():
         print ("valid")
 
     mycursor.execute("SELECT User_Name,Question_ID,Content,Number_Of_Up_Votes, Number_Of_Down_Votes,Favorite_Answer_ID FROM Questions")
 
     questions = mycursor.fetchall()
+    print(questions)
     if form3.Question_ID.data:
 
 
         #gettting the right questions from the db
-        right_question = questions[int(form3.Question_ID.data)-1]
+        right_question = questions[int(form3.Question_ID.data) - 1]
+        for aquestion in questions:
+            print(aquestion[1],int(form3.Question_ID.data) )
+            if aquestion[1] == (int(form3.Question_ID.data)):
+                right_question= aquestion
+                break
+            else:
+                continue
+
+
+
         session['Question_ID']=right_question[1]
         #get all the answers to the question from the db
         sql = "SELECT Answers.User_Name, Answers.Content, Answers.Answer_ID " \
@@ -418,17 +431,35 @@ class favoriteAnswer(FlaskForm):
 @app.route('/favoriteAnswer', methods=['GET', 'POST'])
 def handle_favorite_answer():
     form = favoriteAnswer()
+    mycursor.execute(
+        "SELECT answer_id,user_name,content FROM answers")
+
+    answers = mycursor.fetchall()
+
     if form.is_submitted():
         print("submitted")
     print(form.Favorite_Answer.data)
     if form.Favorite_Answer.data:
+        print(form.Favorite_Answer)
+        right_answer = (int(form.Favorite_Answer.data))
+        for ananswer in answers:
+            print(answers)
+            if ananswer[0] == (int(form.Favorite_Answer.data)):
+                right_answer = ananswer[2]
+                break
+            else:
+                continue
 
         # Updating the question favorite answer variable
         val = (int(form.Favorite_Answer.data), session['Question_ID'])
         sql = "Update Questions set Favorite_Answer_ID=%s WHERE Questions.Question_ID=%s  "
         mycursor.execute(sql, val)
         mydb.commit()
-        return render_template('SuccesfulVote.html', form=form)
+        val = (right_answer, session['Question_ID'])
+        sql = "Update Questions set Favorite_Answer=%s WHERE Questions.Question_ID=%s  "
+        mycursor.execute(sql, val)
+        mydb.commit()
+        return searches_form()
     else:
         return render_template('Welcome.html', form=form)
 
