@@ -9,7 +9,7 @@ from flask import Flask
 from flask_login import UserMixin, login_user, login_required, logout_user, LoginManager
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField
-from wtforms.fields.html5 import EmailField
+#from wtforms.fields.html5 import EmailField
 from wtforms.validators import InputRequired, Email, Length
 
 app = Flask(__name__)
@@ -98,7 +98,7 @@ def handle_register():
 class RegisterForm(FlaskForm):
     User_ID = 1
     User_Name = StringField('User_Name', validators=[InputRequired(), Length(4, 64)])
-    Email = EmailField('Email', validators=[InputRequired(), Email()])
+    Email = StringField('Email', validators=[InputRequired(), Email()])
     Password = PasswordField('Password', validators=[InputRequired(), Length(8, 64)])
     Password2 = PasswordField('Repeat Password', validators=[InputRequired()])
 
