@@ -2,8 +2,12 @@ import json
 import unittest
 from types import SimpleNamespace
 
+
 import psycopg2
 import pytest
+import os
+import tempfile
+import testing.postgresql
 
 from main import app
 
@@ -35,6 +39,24 @@ class MyTestCase(unittest.TestCase):
     def test_main_page(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
+
+    def test_register_page(self):
+        response = self.app.get('/Register.html', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+    def test_search_page(self):
+            response = self.app.get('/SearchQuestions.html', follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
+
+    def test_login_page(self):
+            response = self.app.get('/DisplayQuestion', follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
+
+    def test_answer_page(self):
+            response = self.app.get('/Login', follow_redirects=True)
+            self.assertEqual(response.status_code, 200)
+
+
 
     def login(self, username, password):
         return self.app.post(
