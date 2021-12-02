@@ -86,389 +86,391 @@
 
 
 <script>
-    
-    var searchMode=false;
 
-    function dummy(alabel){
-    if(alabel=="prog"){
-    document.getElementById("label").value="programming";
+  var searchMode = false;
+
+  function dummy(alabel) {
+    if (alabel == "prog") {
+      document.getElementById("label").value = "programming";
     }
-    else if(alabel == "sport"){
-    document.getElementById("label").value="sports";
+    else if (alabel == "sport") {
+      document.getElementById("label").value = "sports";
     }
-    else if(alabel == "General"){
-    document.getElementById("label").value="General";
+    else if (alabel == "General") {
+      document.getElementById("label").value = "General";
     }
-    else{
-    document.getElementById("label").value="education";
+    else {
+      document.getElementById("label").value = "education";
     }
+  }
+
+  function changeState(id) {
+
+    if (id == "asklabel") {
+      var onload = document.getElementById(id);
+      onload.style.color = "#05386b";
+      onload.style.textDecoration = "underline";
+      onload.style.pointerEvents = "none";
+
+      var onload2 = document.getElementById("searchlabel");
+      onload2.style.color = "white";
+      onload2.style.textDecoration = "none";
+      onload2.style.pointerEvents = "auto";
     }
 
-    function changeState(id){
+    else {
+      var onload = document.getElementById(id);
+      onload.style.color = "#05386b";
+      onload.style.textDecoration = "underline";
+      onload.style.pointerEvents = "none";
 
-    if(id=="asklabel"){
-    var onload= document.getElementById(id);
-    onload.style.color= "#05386b";
-    onload.style.textDecoration="underline";
-    onload.style.pointerEvents="none";
-
-    var onload2= document.getElementById("searchlabel");
-    onload2.style.color= "white";
-    onload2.style.textDecoration="none";
-    onload2.style.pointerEvents="auto";
-    }
-
-    else{
-    var onload= document.getElementById(id);
-    onload.style.color= "#05386b";
-    onload.style.textDecoration="underline";
-    onload.style.pointerEvents="none";
-
-    var onload2= document.getElementById("asklabel");
-    onload2.style.color= "white";
-    onload2.style.textDecoration="none";
-    onload2.style.pointerEvents="auto";
+      var onload2 = document.getElementById("asklabel");
+      onload2.style.color = "white";
+      onload2.style.textDecoration = "none";
+      onload2.style.pointerEvents = "auto";
 
 
-
-    }
 
     }
 
-    function selectAsk(){
+  }
+
+  function selectAsk() {
     changeState("asklabel");
-    searchMode=false;
+    searchMode = false;
     document.getElementById("searchbtn").hidden = true;
     document.getElementById("labelbtn").style.display = "block";
     document.getElementById("askBtn").style.display = "block";
-     document.getElementById("myInput").placeholder="Ask a Question"
-     autocomplete(document.getElementById("myInput"), questionsarray);
-    }
+    document.getElementById("myInput").placeholder = "Ask a Question"
+    autocomplete(document.getElementById("myInput"), questionsarray);
+  }
 
-    function selectSearch(){
+  function selectSearch() {
     changeState("searchlabel");
-    searchMode=true;
+    searchMode = true;
     document.getElementById("searchbtn").hidden = false;
     document.getElementById("askBtn").style.display = "none";
-    document.getElementById("myInput").placeholder="Type the question to search"
+    document.getElementById("myInput").placeholder = "Type the question to search"
     document.getElementById("labelbtn").style.display = "none";
     autocomplete(document.getElementById("myInput"), questionsarray);
-    }
+  }
 
-    changeState("asklabel")
-
-
+  changeState("asklabel")
 
 
 
 
-    function autocomplete(inp, arr) {
-    if(searchMode){
-  /*the autocomplete function takes two arguments,
-  the text field element and an array of possible autocompleted values:*/
-  var currentFocus;
-  /*execute a function when someone writes in the text field:*/
-  inp.addEventListener("input", function(e) {
-      if(searchMode){
-      var a, b, i, val = this.value;
-      /*close any already open lists of autocompleted values*/
-      closeAllLists();
-      if (!val) { return false;}
-      currentFocus = -1;
-      /*create a DIV element that will contain the items (values):*/
-      a = document.createElement("DIV");
-      a.setAttribute("id", this.id + "autocomplete-list");
-      a.setAttribute("class", "autocomplete-items");
-      /*append the DIV element as a child of the autocomplete container:*/
-      this.parentNode.appendChild(a);
-      /*for each item in the array...*/
-      for (i = 0; i < arr.length; i++) {
-        /*check if the item starts with the same letters as the text field value:*/
-        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-          /*create a DIV element for each matching element:*/
-          b = document.createElement("DIV");
-          /*make the matching letters bold:*/
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-          /*insert a input field that will hold the current array item's value:*/
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-          /*execute a function when someone clicks on the item value (DIV element):*/
-          b.addEventListener("click", function(e) {
-              /*insert the value for the autocomplete text field:*/
-              inp.value = this.getElementsByTagName("input")[0].value;
-              /*close the list of autocompleted values,
-              (or any other open lists of autocompleted values:*/
-              closeAllLists();
-          });
-          a.appendChild(b);
+
+
+  function autocomplete(inp, arr) {
+    if (searchMode) {
+      /*the autocomplete function takes two arguments,
+      the text field element and an array of possible autocompleted values:*/
+      var currentFocus;
+      /*execute a function when someone writes in the text field:*/
+      inp.addEventListener("input", function (e) {
+        if (searchMode) {
+          var a, b, i, val = this.value;
+          /*close any already open lists of autocompleted values*/
+          closeAllLists();
+          if (!val) { return false; }
+          currentFocus = -1;
+          /*create a DIV element that will contain the items (values):*/
+          a = document.createElement("DIV");
+          a.setAttribute("id", this.id + "autocomplete-list");
+          a.setAttribute("class", "autocomplete-items");
+          /*append the DIV element as a child of the autocomplete container:*/
+          this.parentNode.appendChild(a);
+          /*for each item in the array...*/
+          for (i = 0; i < arr.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+              /*create a DIV element for each matching element:*/
+              b = document.createElement("DIV");
+              /*make the matching letters bold:*/
+              b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+              b.innerHTML += arr[i].substr(val.length);
+              /*insert a input field that will hold the current array item's value:*/
+              b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+              /*execute a function when someone clicks on the item value (DIV element):*/
+              b.addEventListener("click", function (e) {
+                /*insert the value for the autocomplete text field:*/
+                inp.value = this.getElementsByTagName("input")[0].value;
+                /*close the list of autocompleted values,
+                (or any other open lists of autocompleted values:*/
+                closeAllLists();
+              });
+              a.appendChild(b);
+            }
+          }
+        }
+      });
+      /*execute a function presses a key on the keyboard:*/
+      inp.addEventListener("keydown", function (e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+          /*If the arrow DOWN key is pressed,
+          increase the currentFocus variable:*/
+          currentFocus++;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 38) { //up
+          /*If the arrow UP key is pressed,
+          decrease the currentFocus variable:*/
+          currentFocus--;
+          /*and and make the current item more visible:*/
+          addActive(x);
+        } else if (e.keyCode == 13) {
+          /*If the ENTER key is pressed, prevent the form from being submitted,*/
+          e.preventDefault();
+          if (currentFocus > -1) {
+            /*and simulate a click on the "active" item:*/
+            if (x) x[currentFocus].click();
+          }
+        }
+      });
+      function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+      }
+      function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+          x[i].classList.remove("autocomplete-active");
         }
       }
-  }});
-  /*execute a function presses a key on the keyboard:*/
-  inp.addEventListener("keydown", function(e) {
-      var x = document.getElementById(this.id + "autocomplete-list");
-      if (x) x = x.getElementsByTagName("div");
-      if (e.keyCode == 40) {
-        /*If the arrow DOWN key is pressed,
-        increase the currentFocus variable:*/
-        currentFocus++;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 38) { //up
-        /*If the arrow UP key is pressed,
-        decrease the currentFocus variable:*/
-        currentFocus--;
-        /*and and make the current item more visible:*/
-        addActive(x);
-      } else if (e.keyCode == 13) {
-        /*If the ENTER key is pressed, prevent the form from being submitted,*/
-        e.preventDefault();
-        if (currentFocus > -1) {
-          /*and simulate a click on the "active" item:*/
-          if (x) x[currentFocus].click();
+      function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+          if (elmnt != x[i] && elmnt != inp) {
+            x[i].parentNode.removeChild(x[i]);
+          }
         }
       }
-  });
-  function addActive(x) {
-    /*a function to classify an item as "active":*/
-    if (!x) return false;
-    /*start by removing the "active" class on all items:*/
-    removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
-    /*add class "autocomplete-active":*/
-    x[currentFocus].classList.add("autocomplete-active");
-  }
-  function removeActive(x) {
-    /*a function to remove the "active" class from all autocomplete items:*/
-    for (var i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
+      /*execute a function when someone clicks in the document:*/
+      document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+      });
     }
   }
-  function closeAllLists(elmnt) {
-    /*close all autocomplete lists in the document,
-    except the one passed as an argument:*/
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (elmnt != x[i] && elmnt != inp) {
-        x[i].parentNode.removeChild(x[i]);
-      }
-    }
+
+  /*An array containing all question:*/
+
+  var questions = JSON.parse('{{ form2|safe }}');
+
+  var qlength = '{{ len }}';
+  var questionsarray = new Array();
+  var indexarray = new Array();
+
+  for (i = 0; i < qlength; i++) {
+    var str1 = questions[i][0];
+    var str2 = questions[i][1];
+    var str = str2 + ". #:" + str1
+    questionsarray.push(str);
+    indexarray.push(questions[i][0]);
+
+
+
   }
-  /*execute a function when someone clicks in the document:*/
-  document.addEventListener("click", function (e) {
-      closeAllLists(e.target);
-  });
-}}
-
-/*An array containing all question:*/
-
-var questions=JSON.parse('{{ form2|safe }}');
-
- var qlength= '{{ len }}';
- var questionsarray = new Array();
- var indexarray= new Array();
-
-for (i = 0; i < qlength ; i++){
-var str1=questions[i][0];
-var str2=questions[i][1];
-var str=str2+ ". #:"+ str1
-questionsarray.push(str);
-indexarray.push(questions[i][0]);
 
 
-
-}
-
-
-/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-autocomplete(document.getElementById("myInput"), questionsarray);
+  /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+  autocomplete(document.getElementById("myInput"), questionsarray);
 
 
-function searchQuestion(){
+  function searchQuestion() {
 
-var aQuestion= document.getElementById("myInput").value;
+    var aQuestion = document.getElementById("myInput").value;
 
-var result = aQuestion.match(/(?<=#:)\d+/);
+    var result = aQuestion.match(/(?<=#:)\d+/);
 
 
-if(result==null){
-alert("question not found");
-}
-else{
+    if (result == null) {
+      alert("question not found");
+    }
+    else {
 
-    if(indexarray.includes(parseInt(result))){
+      if (indexarray.includes(parseInt(result))) {
 
-        document.getElementById("qid").value=result;
+        document.getElementById("qid").value = result;
         document.theform.submit();
+      }
+      else {
+        alert("question not found");
+
+      }
     }
-    else{
-    alert("question not found");
 
-    }
-}
-
-}
-
-
-
-
-/*for the question catalog features*/
-function qItem( d1_param, d2_param, qid_param) {
-  this.d1 = d1_param;
-  this.d2 = d2_param;
-  this.qid = qid_param;
   }
 
-let listofelem = new Array();
-var mainarr = new Array();
 
-function what(){
 
-var question=JSON.parse('{{ form2|safe }}');
-alert(question);
-}
 
-function myFunc(vars) {
+  /*for the question catalog features*/
+  function qItem(d1_param, d2_param, qid_param) {
+    this.d1 = d1_param;
+    this.d2 = d2_param;
+    this.qid = qid_param;
+  }
+
+  let listofelem = new Array();
+  var mainarr = new Array();
+
+  function what() {
+
+    var question = JSON.parse('{{ form2|safe }}');
+    alert(question);
+  }
+
+  function myFunc(vars) {
     return vars
-}
+  }
 
-function displayQuestions(){
-
-
-                var i;
-
-                var qlength= '{{ len }}';
-                var question=JSON.parse('{{ form2|safe }}');
-
-                for (i = 0; i < qlength ; i++){
-
-                var alabel="General";
-                if(question[i][2] !==""){
-                var alabel=question[i][2];
-                }
-                var questionid=question[i][0];
-                var t = document.createTextNode(question[i][1]);
-                var noAnswers = document.createTextNode("Not Answered");
-                var isAnswered = document.createTextNode("This question was answered");
-                var label_text = document.createTextNode(alabel);
+  function displayQuestions() {
 
 
-                var d1 = document.createElement("div");
-                var d2 = document.createElement("div");
-                var pa1= document.createElement("p");
-                var pa11= document.createElement("p");
-                var d3 = document.createElement("div");
-                var d4 = document.createElement("div");
-                var header1= document.createElement("h2");
-                var pa2= document.createElement("p");
-                var d5 = document.createElement("div");
-                var ima1 = document.createElement("img");
-                var s1=document.createElement("span");
-                var ima2 = document.createElement("img");
-                var s2=document.createElement("span");
-                var l1=document.createElement("label");
+    var i;
 
-                s1.innerHTML=question[i][5];
-                s2.innerHTML=question[i][6];
+    var qlength = '{{ len }}';
+    var question = JSON.parse('{{ form2|safe }}');
 
-                mainarr.push(d1)
+    for (i = 0; i < qlength; i++) {
 
-                var anitem=new qItem(d1, d2,question[i][0]);
-                listofelem.push(anitem);
-
-                listofelem[i].d1.className = "col-lg-4 col-md-6 col-sm-12 tm-catalog-item";
-                listofelem[i].d2.className = "position-relative tm-thumbnail-container";
-                pa1.className="img-fluid tm-catalog-item-img";
-                d3.className = "p-4 tm-bg-gray tm-catalog-item-description";
-                header1.className="tm-text-primary mb-3 tm-catalog-item-title";
-                pa2.className="tm-catalog-item-text";
-                pa11.className="user_tag";
-                pa11.style.color= "#20B2AA";
-                pa11.style.fontWeight = "bold";
-                pa11.innerHTML="By "+ question[i][3];
-
-                ima1.src="{{url_for('static', filename='icons8-thumbs-up-30.png')}}";
-                ima2.src="{{url_for('static', filename='icons8-pouces-vers-le-bas-30.png')}}";
-                l1.className="tagClass";
+      var alabel = "General";
+      if (question[i][2] !== "") {
+        var alabel = question[i][2];
+      }
+      var questionid = question[i][0];
+      var t = document.createTextNode(question[i][1]);
+      var noAnswers = document.createTextNode("Not Answered");
+      var isAnswered = document.createTextNode("This question was answered");
+      var label_text = document.createTextNode(alabel);
 
 
-                 var anAnswer="None";
-                 var Answer_label= "No answer";
-                 d4.className= "error-msg";
+      var d1 = document.createElement("div");
+      var d2 = document.createElement("div");
+      var pa1 = document.createElement("p");
+      var pa11 = document.createElement("p");
+      var d3 = document.createElement("div");
+      var d4 = document.createElement("div");
+      var header1 = document.createElement("h2");
+      var pa2 = document.createElement("p");
+      var d5 = document.createElement("div");
+      var ima1 = document.createElement("img");
+      var s1 = document.createElement("span");
+      var ima2 = document.createElement("img");
+      var s2 = document.createElement("span");
+      var l1 = document.createElement("label");
+
+      s1.innerHTML = question[i][5];
+      s2.innerHTML = question[i][6];
+
+      mainarr.push(d1)
+
+      var anitem = new qItem(d1, d2, question[i][0]);
+      listofelem.push(anitem);
+
+      listofelem[i].d1.className = "col-lg-4 col-md-6 col-sm-12 tm-catalog-item";
+      listofelem[i].d2.className = "position-relative tm-thumbnail-container";
+      pa1.className = "img-fluid tm-catalog-item-img";
+      d3.className = "p-4 tm-bg-gray tm-catalog-item-description";
+      header1.className = "tm-text-primary mb-3 tm-catalog-item-title";
+      pa2.className = "tm-catalog-item-text";
+      pa11.className = "user_tag";
+      pa11.style.color = "#20B2AA";
+      pa11.style.fontWeight = "bold";
+      pa11.innerHTML = "By " + question[i][3];
+
+      ima1.src = "{{url_for('static', filename='icons8-thumbs-up-30.png')}}";
+      ima2.src = "{{url_for('static', filename='icons8-pouces-vers-le-bas-30.png')}}";
+      l1.className = "tagClass";
 
 
-                if(question[i][4] !=""){
-
-                 anAnswer=question[i][4];
-                 d4.className= "success-msg";
-                 d4.appendChild(isAnswered);
-                 Answer_label= "Answered by "+question[i][3];
-                 var ansLabel=document.createTextNode(Answer_label);
-
-                 header1.innerHTML=Answer_label;
-                 pa2.innerHTML=anAnswer;
-
-                }
-                else{
-                d5.className="item-footer";
-                d4.appendChild(noAnswers);
-               header1.innerHTML=Answer_label;
-                 pa2.innerHTML=anAnswer;
-                }
+      var anAnswer = "None";
+      var Answer_label = "No answer";
+      d4.className = "error-msg";
 
 
+      if (question[i][4] != "") {
 
+        anAnswer = question[i][4];
+        d4.className = "success-msg";
+        d4.appendChild(isAnswered);
+        Answer_label = "Answered by " + question[i][3];
+        var ansLabel = document.createTextNode(Answer_label);
 
-                pa1.appendChild(t);
-                l1.appendChild(label_text);
+        header1.innerHTML = Answer_label;
+        pa2.innerHTML = anAnswer;
 
-                d5.appendChild(ima1);
-                d5.appendChild(s1);
-                d5.appendChild(ima2);
-                d5.appendChild(s2);
-                d5.appendChild(l1);
-
-                d3.appendChild(d4);
-                d3.appendChild(header1);
-                d3.appendChild(pa2);
-                var strlen=question[i][1].length;
-                while(strlen>0){
-                d3.appendChild(document.createElement("br"));
-                strlen-=70;
-
-                }
-                d3.appendChild(d5);
-
-                listofelem[i].d2.appendChild(pa1);
-                listofelem[i].d2.appendChild(pa11);
-                listofelem[i].d1.appendChild(listofelem[i].d2);
-                listofelem[i].d1.appendChild(d3);
-
-                document.getElementById("myUL").appendChild(listofelem[i].d1);
+      }
+      else {
+        d5.className = "item-footer";
+        d4.appendChild(noAnswers);
+        header1.innerHTML = Answer_label;
+        pa2.innerHTML = anAnswer;
+      }
 
 
 
-                }
+
+      pa1.appendChild(t);
+      l1.appendChild(label_text);
+
+      d5.appendChild(ima1);
+      d5.appendChild(s1);
+      d5.appendChild(ima2);
+      d5.appendChild(s2);
+      d5.appendChild(l1);
+
+      d3.appendChild(d4);
+      d3.appendChild(header1);
+      d3.appendChild(pa2);
+      var strlen = question[i][1].length;
+      while (strlen > 0) {
+        d3.appendChild(document.createElement("br"));
+        strlen -= 70;
+
+      }
+      d3.appendChild(d5);
+
+      listofelem[i].d2.appendChild(pa1);
+      listofelem[i].d2.appendChild(pa11);
+      listofelem[i].d1.appendChild(listofelem[i].d2);
+      listofelem[i].d1.appendChild(d3);
+
+      document.getElementById("myUL").appendChild(listofelem[i].d1);
 
 
-}
-displayQuestions()
+
+    }
 
 
-var i;
-var divarr= document.getElementsByClassName("position-relative");
-for(i= 0; i<listofelem.length; i++){
-listofelem[i].d2.onclick =function (){
+  }
+  displayQuestions()
 
-                var div2 = (this.parentElement)
-                var ind2 = mainarr.indexOf(div2);
-                document.getElementById("qid").value=listofelem[ind2].qid;
 
-                 document.theform.submit();
+  var i;
+  var divarr = document.getElementsByClassName("position-relative");
+  for (i = 0; i < listofelem.length; i++) {
+    listofelem[i].d2.onclick = function () {
 
-                }
-}
+      var div2 = (this.parentElement)
+      var ind2 = mainarr.indexOf(div2);
+      document.getElementById("qid").value = listofelem[ind2].qid;
+
+      document.theform.submit();
+
+    }
+  }
 
 </script>
 </body>
