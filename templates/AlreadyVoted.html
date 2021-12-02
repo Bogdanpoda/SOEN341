@@ -1,14 +1,14 @@
 {% extends "SearchQuestions.html" %}
 {% block head %}
-    {{ super() }}
-
+    {{super()}}
 {% endblock %}
 
 {% block navbar %}
     {{ super() }}
 {% endblock %}
+
 {% block content %}
-<script>
-    alert("Login successful! Welcome {{ name }}");
-</script>
+   <script>
+       alert("Sorry, you already voted for this question");
+   </script>
 {% endblock %}

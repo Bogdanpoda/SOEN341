@@ -11,6 +11,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, RadioField
 #from wtforms.fields.html5 import EmailField
 from wtforms.validators import InputRequired, Email, Length
+import re
 
 
 app = Flask(__name__)
@@ -90,6 +91,7 @@ def handle_register():
         print(val)
         mycursor.execute(sql, val)
         mydb.commit()
+        logout()
        # return redirect(url_for('_register_response', name=form3.User_Name.data))
         return render_template('RegisterSuccess.html', form=form, name=form3.User_Name.data)
     else:
@@ -152,8 +154,14 @@ def handle_Login():
             session['username'] = form2.User_Name.data
             message ="Logged in!"
            # return redirect(url_for('_login_response', name=form2.User_Name.data, form=form))
+            mycursor.execute(
+                "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+            questions = mycursor.fetchall()
+            form4 = questions
+            form3 = GetQuestionForm()
+            form = QuestionForm()
 
-            responce= make_response(render_template('LoginSuccess.html',form=form, name=form2.User_Name.data,message=message))
+            responce= make_response(render_template('LoginSuccess.html',form=form, form2=json.dumps(form4), form3=form3, len=len(questions), name=form2.User_Name.data,message=message))
             responce.headers.set('message','Logged in')
             return responce
 
@@ -199,11 +207,16 @@ class User(UserMixin):
 # -----------------------
 @app.route('/Ask_a_Question.html', methods=['GET', 'POST'])
 def question_form():
-    # if session['username'] == "":
-    # return render_template('Ask_a_Question_Not_logged_in.html')
-    # else:
+    mycursor.execute(
+        "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+    questions = mycursor.fetchall()
+    form2 = questions
+    form3 = GetQuestionForm()
     form = QuestionForm()
-    return render_template('Ask_a_Question.html', form=form)
+    if session['username'] == "":
+        return render_template('Ask_a_Question_Not_logged_in.html',form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
+    else:
+        return render_template('Ask_a_Question.html', form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
 
 
 @app.route('/QuestionSuccess')
@@ -213,9 +226,17 @@ def _question_response():
 
 @app.route('/question', methods=['GET', 'POST'])
 def handle_Question():
+
+
     form = QuestionForm()
     if session['username'] == "":
-        return render_template('Ask_a_Question_Not_logged_in.html')
+        mycursor.execute(
+            "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+        questions = mycursor.fetchall()
+        form2 = questions
+        form3 = GetQuestionForm()
+        print("hello")
+        return render_template('Ask_a_Question_Not_logged_in.html', form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
 
     if form.is_submitted():
         print("submitted")
@@ -242,9 +263,21 @@ def handle_Question():
         print(val)
         mycursor.execute(sql, val)
         mydb.commit()
-        return render_template('QuestionSuccess.html', form=form)
+        mycursor.execute(
+            "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+        questions = mycursor.fetchall()
+        form2 = questions
+        form3 = GetQuestionForm()
+        return render_template('QuestionSuccess.html', form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
     else:
-        return render_template('QuestionFail.html', form=form)
+
+        mycursor.execute(
+            "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+        questions = mycursor.fetchall()
+        form2 = questions
+        form3 = GetQuestionForm()
+
+        return render_template('QuestionFail.html', form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
 
 
 class QuestionForm(FlaskForm):
@@ -265,7 +298,12 @@ def logout():
     if session['username'] == "":
         print("good")
         form = QuestionForm()
-        return render_template('Welcome.html', form=form)
+        mycursor.execute(
+            "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+        questions = mycursor.fetchall()
+        form2 = questions
+        form3 = GetQuestionForm()
+        return render_template('SearchQuestions.html', form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
     else:
         logout_user()
         session['username'] = ""
@@ -348,7 +386,13 @@ class AnswerForm(FlaskForm):
 @app.route('/answer', methods=['GET', 'POST'])
 def handle_Answer():
     if session['username'] == "":
-        return render_template('Ask_a_Question_Not_logged_in.html')
+        mycursor.execute(
+            "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+        questions = mycursor.fetchall()
+        form2 = questions
+        form3 = GetQuestionForm()
+        form = QuestionForm()
+        return render_template('Ask_a_Question_Not_logged_in.html',form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
     form = AnswerForm()
     if form.is_submitted():
         print("submitted")
@@ -379,45 +423,98 @@ def handle_Answer():
         val = (session['Question_ID'], form.Answer_ID)
         mycursor.execute(sql, val)
         mydb.commit()
+        mycursor.execute(
+            "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+        questions = mycursor.fetchall()
+        form2 = questions
+        form3 = GetQuestionForm()
+        form = QuestionForm()
 
-        flash('Answer posted successfully')
-        return render_template('Welcome.html', form=form)
+
+        return render_template('SearchQuestions.html', form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
     else:
         flash('Invalid answer')
-        return render_template('Welcome.html', form=form)
+        mycursor.execute(
+            "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+        questions = mycursor.fetchall()
+        form2 = questions
+        form3 = GetQuestionForm()
+        form = QuestionForm()
+        return render_template('SearchQuestions.html', form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
 
         # UpVotes or DownVotes
         # --------------
 
 class voteQuestion(FlaskForm):
     Vote = RadioField('Vote')
+    unVote=RadioField('unVote')
+
 
 @app.route('/vote', methods=['GET', 'POST'])
 def handle_vote():
+
     if session['username'] == "":
-        return render_template('Ask_a_Question_Not_logged_in.html')
+        mycursor.execute(
+            "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+        questions = mycursor.fetchall()
+        form2 = questions
+        form3 = GetQuestionForm()
+        form = QuestionForm()
+        return render_template('Ask_a_Question_Not_logged_in.html',form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
     form = voteQuestion()
     if form.is_submitted():
             print("submitted")
-    print(form.Vote.data)
+
     if form.validate():
         print("valid")
 
-    if form.Vote.data:
+    if form.Vote.data or form.unVote.data:
+        print(form.unVote.data)
+        print(form.Vote.data)
+        print("\"Vote\"" in str(form.unVote))
+
         mycursor.execute("SELECT * FROM VOTE")
         allvotes = mycursor.fetchall()
 
         # Verify if the user has already voted for the question
         for i in allvotes:
             if i[0] == session['username'] and i[1] == int(session["Question_ID"]):
-                return render_template('AlreadyVoted.html')
+                mycursor.execute(
+                    "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+                questions = mycursor.fetchall()
+                form2 = questions
+                form3 = GetQuestionForm()
+                form = QuestionForm()
+                return render_template('AlreadyVoted.html',form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
 
         # Adding the vote into the vote table
         val = (session['username'], session['Question_ID'], form.Vote.data)
         sql = "INSERT INTO VOTE VALUES(%s,%s,%s)"
         mycursor.execute(sql, val)
         mydb.commit()
-        return render_template('SuccesfulVote.html', form=form)
+
+        if form.Vote.data:
+            val = (session['Question_ID'])
+            sql = "UPDATE Questions SET number_of_up_votes = number_of_up_votes + 1 WHERE question_id = %s"
+            mycursor.execute(sql, [val])
+            mydb.commit()
+        else:
+            val = (session['Question_ID'])
+            sql = "UPDATE Questions SET number_of_down_votes = number_of_down_votes + 1 WHERE question_id = %s"
+            mycursor.execute(sql, [val])
+            mydb.commit()
+
+
+        mycursor.execute(
+            "SELECT Question_ID,Content,Label,User_name,favorite_answer,number_of_up_votes, number_of_down_votes FROM Questions")
+        questions = mycursor.fetchall()
+        form2 = questions
+        form3 = GetQuestionForm()
+        form = QuestionForm()
+
+
+
+        return render_template('SuccesfulVote.html', form=form, form2=json.dumps(form2), form3=form3,  len=len(questions))
     else:
         return render_template('Welcome.html', form=form)
 
