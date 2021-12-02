@@ -35,7 +35,7 @@ This website will ba a simplified version of StackOverflow. Indeed this will be 
 2. answer a question: any user will be alloed to answer a question found on the wesite
 3. upvote and downvote the answers to a question: users will be allowed to upvote or downvote any question
 
-## objectives
+## Objectives
 * create the 3 main HTML pages
 ** Design each HTML pages with CSS
 ** create a common Nav bar at the top of each html page
