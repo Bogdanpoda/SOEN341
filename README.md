@@ -43,7 +43,7 @@ This website will ba a simplified version of StackOverflow. Indeed this will be 
 ** each time a user sign up it would be added to the database
 
 ## coding style and naming convention 
-*camel case 
+* Camel case 
 
 ## Block Diagram
 ![image](https://user-images.githubusercontent.com/91218131/144356198-9d889c54-00cc-40b5-949c-43e2f359162a.png)
