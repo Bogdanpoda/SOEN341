@@ -28,6 +28,7 @@ This website will ba a simplified version of StackOverflow. Indeed this will be 
 * Techniques: Agile methodology ( user stories,issues assigned within a board in GitHub)
 ** for each issue assigned a team member would crete a new brach with the given issue name and would solve/add feature in this brach.
     after he would crete a pull request where a reviwer will test the new code and merge it to the main branch.
+* Coding style and Naming convention: Camel case 
 
 ## Core Features
 1. Ask a question: the user will be allowed to ask a question
@@ -41,9 +42,6 @@ This website will ba a simplified version of StackOverflow. Indeed this will be 
 * create a database to store the users and questions
 * each time a question is asked it would be added in the database along the number of votes and the answers
 ** each time a user sign up it would be added to the database
-
-## coding style and naming convention 
-* Camel case 
 
 ## Block Diagram
 ![image](https://user-images.githubusercontent.com/91218131/144356198-9d889c54-00cc-40b5-949c-43e2f359162a.png)
