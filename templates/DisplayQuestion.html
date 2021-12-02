@@ -11,15 +11,14 @@
 <body>
 <div class="headerPage">
                    <div class="col-3 headerContainer">
-                   <h1> <a class="navigator" >StackUnderflow</a> </h1>
+                   <h1> <a class="navigator" href="SearchQuestions.html" style="color:gold" >StackUnderflow</a> </h1>
             </div>
             <div class="col-9 menuParent">
                    <ul class="menu">
                        <li > <a class="navigator" href="{{url_for('logout')}}">Logout</a></li>
                         <li >Hello {{session.username}} </li>
                         <li ><a class="navigator" href="Login.html">Login/sign-up</a></li>
-                       <li ><a class="navigator" href="#section">Search</a></li>
-                       <li > <a class="navigator" href="#home&t=1s&p=right">Ask</a></li>
+                       <li > <a class="navigator" href="SearchQuestions.html">Ask/Search</a></li>
                     </ul>
                 </div>
 
@@ -36,7 +35,7 @@
 <form action="/vote" method="post">
     <input type="radio" value=1 id="LikeButton" name="Vote" >
     <label for="LikeButton">LIKE</label>
-    <input type="radio" value=0 id="DislikeButton" name="Vote" >
+    <input type="radio" value=0 id="DislikeButton" name="unVote" >
     <label for="DislikeButton">DISLIKE</label></br>
     <button type="submit">Send</button>
     <button type="reset">Clear</button>

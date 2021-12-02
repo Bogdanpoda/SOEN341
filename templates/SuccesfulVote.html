@@ -1,17 +1,15 @@
 {% extends "SearchQuestions.html" %}
 {% block head %}
-    {{ super() }}
-
+    {{super()}}
 {% endblock %}
 
 {% block navbar %}
     {{ super() }}
 {% endblock %}
+
 {% block content %}
 
 <script>
-    alert("Question asked successfully {{session.username}}!\n your question will now be displayed in the catalog section");
-
+    alert("vote added");
 </script>
-
 {% endblock %}

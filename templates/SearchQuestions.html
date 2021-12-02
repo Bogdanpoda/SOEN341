@@ -1,4 +1,5 @@
 <html>
+{% block head %}
 <head>
     <meta charset="UTF-8">
     <title>Base </title>
@@ -10,21 +11,22 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename= 'templatemo-video-catalog.css')}}">
 
 </head>
+{% endblock %}
 <body>
+    {% block navbar %}
 
 
  <div class="box">
      <div class="headerPage">
          <div class="col-3 headerContainer">
-             <h1> <a class="navigator" >StackUnderflow</a> </h1>
+             <h1> <a class="navigator" href="SearchQuestions.html" >StackUnderflow</a> </h1>
          </div>
          <div class="col-9 menuParent">
              <ul class="menu">
                  <li > <a class="navigator" href="{{url_for('logout')}}">Logout</a></li>
                  <li >Hello {{session.username}} </li>
                  <li ><a class="navigator" href="Login.html">Login/sign-up</a></li>
-                 <li ><a class="navigator" href="#section">Search</a></li>
-                 <li > <a class="navigator" href="#home&t=1s&p=right">Ask</a></li>
+                 <li ><a class="navigator" href="#section">Catalog</a></li>
              </ul>
          </div>
      </div>
@@ -78,11 +80,13 @@
     </form>
 </div>
 
+{% endblock %}
+{% block content %}
+{% endblock %}
 
 
 <script>
-// for the answer ask question features
-
+    
     var searchMode=false;
 
     function dummy(alabel){
@@ -286,7 +290,7 @@ function searchQuestion(){
 var aQuestion= document.getElementById("myInput").value;
 
 var result = aQuestion.match(/(?<=#:)\d+/);
-alert(result);
+
 
 if(result==null){
 alert("question not found");
@@ -294,7 +298,7 @@ alert("question not found");
 else{
 
     if(indexarray.includes(parseInt(result))){
-        alert("hello123");
+
         document.getElementById("qid").value=result;
         document.theform.submit();
     }
